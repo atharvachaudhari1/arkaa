@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "seve-desktop": "file:.."
+  }
+}
