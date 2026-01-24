@@ -3,6 +3,20 @@ import SeveLogo from './SeveLogo.jsx';
 
 const SeveAnimation = ({ onAnimationComplete }) => {
   useEffect(() => {
+    const handleKeyPress = (e) => {
+      if (e.code === 'Space') {
+        e.preventDefault();
+        if (onAnimationComplete) {
+          onAnimationComplete();
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [onAnimationComplete]);
+
+  useEffect(() => {
     // SEVE Starting Animation Script
     var text = 'SECURE ERASE & VERIFICATION ENGINE';
     var typingDiv = document.getElementById('typingText');

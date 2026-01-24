@@ -73,13 +73,15 @@ async function ensureElevated() {
 }
 
 function createWindow() {
+  const isDev = !app.isPackaged;
+  
   mainWindow = new BrowserWindow({
     width: 1200,
     height: 800,
     icon: path.join(__dirname, '../assets/SEVE-logo.png'),
     title: 'SEVE Desktop',
     autoHideMenuBar: true,
-    fullscreen: true,
+    fullscreen: isDev ? false : true,
     kiosk: false,
     webPreferences: {
       nodeIntegration: false,
@@ -124,6 +126,25 @@ ipcMain.handle('locate-file', async (_evt, filePath) => {
   } catch (e) {
     return { success: false, error: e.message };
   }
+});
+
+// Window control IPC handlers for development mode
+ipcMain.handle('window-minimize', () => {
+  if (mainWindow) mainWindow.minimize();
+});
+
+ipcMain.handle('window-maximize', () => {
+  if (mainWindow) {
+    if (mainWindow.isMaximized()) {
+      mainWindow.unmaximize();
+    } else {
+      mainWindow.maximize();
+    }
+  }
+});
+
+ipcMain.handle('window-close', () => {
+  if (mainWindow) mainWindow.close();
 });
   
   // Set icon after window creation (with error handling)

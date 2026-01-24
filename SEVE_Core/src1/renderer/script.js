@@ -22,6 +22,28 @@ let stallIndex = 0;          // next stall to trigger
 let stallUntil = 0;          // timestamp when stall ends
 let progressMessage = '';
 
+// Initialize development window controls
+function initDevWindowControls() {
+  const isDev = !window.location.href.includes('app://');
+  const devControls = document.getElementById('devWindowControls');
+  
+  if (devControls && isDev) {
+    devControls.style.display = 'flex';
+    
+    document.getElementById('devMinimize').addEventListener('click', () => {
+      window.electronAPI.windowMinimize();
+    });
+    
+    document.getElementById('devMaximize').addEventListener('click', () => {
+      window.electronAPI.windowMaximize();
+    });
+    
+    document.getElementById('devClose').addEventListener('click', () => {
+      window.electronAPI.windowClose();
+    });
+  }
+}
+
 // Enhanced Background Animation
 function initBackgroundAnimation() {
     const body = document.body;
@@ -222,6 +244,7 @@ document.addEventListener('click', async (e) => {
 
 // Initialize on load
 document.addEventListener('DOMContentLoaded', function() {
+    initDevWindowControls();
     initBackgroundAnimation();
     
     // Sidebar Navigation Logic
