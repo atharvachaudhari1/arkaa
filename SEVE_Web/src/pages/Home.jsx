@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import ContactSection from '../components/ContactSection.jsx';
 import { Bot, ShieldCheck, Activity, Lock, FileCheck, Zap, Monitor, Smartphone, Usb, Cpu } from 'lucide-react';
 
 
-const Home = () => {
+const Home = ({ onGetSeveClick }) => {
+
   return (
     <>
       {/* Hero Section matching FLUO AI layout */}
@@ -29,7 +31,7 @@ const Home = () => {
             <p className="hero-description">
               <span className="highlight">"SEVE"</span> reads actual file content to detect truly sensitive data, then permanently destroys it with military-grade algorithms — all without ever touching the internet.
             </p>
-            <button className="hero-cta">Start with SEVE</button>
+            <button className="hero-cta" onClick={onGetSeveClick}>Start with SEVE</button>
           </div>
         </div>
 

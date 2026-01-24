@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import seveIcon from '../assets/icons/SEVE.svg';
 
-const Navbar = () => {
+const Navbar = ({ onGetSeveClick }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -11,6 +11,13 @@ const Navbar = () => {
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
+  };
+
+  const handleGetSeveClick = () => {
+    closeMobileMenu();
+    if (onGetSeveClick) {
+      onGetSeveClick();
+    }
   };
 
   return (
@@ -35,10 +42,10 @@ const Navbar = () => {
           <li><Link to="/#contact" onClick={closeMobileMenu}>Contacts</Link></li>
           <li><Link to="/how-it-works" onClick={closeMobileMenu}>How it Works</Link></li>
           <li><Link to="/docs" onClick={closeMobileMenu}>Docs</Link></li>
-          <li className="mobile-only"><button className="nav-cta">Get SEVE</button></li>
+          <li className="mobile-only"><button className="nav-cta" onClick={handleGetSeveClick}>Get SEVE</button></li>
         </ul>
 
-        <button className="nav-cta desktop-only">Get SEVE</button>
+        <button className="nav-cta desktop-only" onClick={handleGetSeveClick}>Get SEVE</button>
       </div>
     </nav>
   );

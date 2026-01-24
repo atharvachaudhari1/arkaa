@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import SeveAnimation from './components/SeveAnimation.jsx';
 import Navbar from './components/Navbar.jsx';
+import GetSeveForm from './components/GetSeveForm.jsx';
 import Home from './pages/Home.jsx';
 import HowItWorks from './pages/HowItWorks.jsx';
 import Docs from './pages/Docs.jsx';
+import Admin from './pages/Admin.jsx';
 import Footer from './components/Footer.jsx';
 import './App.css';
 
@@ -28,6 +30,7 @@ const ScrollHandler = () => {
 
 function App() {
   const [showMainContent, setShowMainContent] = useState(false);
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   // Lock scroll during animation and reset on mount
   useEffect(() => {
@@ -48,6 +51,14 @@ function App() {
     requestAnimationFrame(() => window.scrollTo(0, 0));
   };
 
+  const handleGetSeveClick = () => {
+    setIsFormOpen(true);
+  };
+
+  const handleCloseForm = () => {
+    setIsFormOpen(false);
+  };
+
   return (
     <Router>
       <ScrollHandler />
@@ -57,14 +68,18 @@ function App() {
 
         {/* Main Website Content (hidden initially) */}
         <div className={`main-content ${showMainContent ? 'visible' : ''}`} id="mainContent">
-          <Navbar />
+          <Navbar onGetSeveClick={handleGetSeveClick} />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home onGetSeveClick={handleGetSeveClick} />} />
             <Route path="/how-it-works" element={<HowItWorks />} />
             <Route path="/docs" element={<Docs />} />
+            <Route path="/admin" element={<Admin />} />
           </Routes>
           <Footer />
         </div>
+
+        {/* Get SEVE Form Modal - Global */}
+        <GetSeveForm isOpen={isFormOpen} onClose={handleCloseForm} />
       </div>
     </Router>
   );
