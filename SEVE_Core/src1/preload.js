@@ -24,6 +24,9 @@ contextBridge.exposeInMainWorld('electronAPI', {
   locateFile: (filePath) => ipcRenderer.invoke('locate-file', filePath),
   generateSeveReport: (filePath, data) => ipcRenderer.invoke('generate-seve-report', { filePath, data }),
   getDriveInfo: (driveId) => ipcRenderer.invoke('get-drive-info', driveId),
+  windowMinimize: () => ipcRenderer.invoke('window-minimize'),
+  windowMaximize: () => ipcRenderer.invoke('window-maximize'),
+  windowClose: () => ipcRenderer.invoke('window-close'),
   onScanProgress: (callback) => {
     const listener = (_event, payload) => callback(payload);
     ipcRenderer.on('scan-progress', listener);
