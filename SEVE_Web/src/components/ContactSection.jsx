@@ -45,6 +45,22 @@ const ContactSection = () => {
                   </div>
                 </div>
 
+                {/* Reetika Yadav */}
+                <div className="div2">
+                  <span className="dev-name">Reetika Yadav</span>
+                  <div className="dev-social-links">
+                    <a href="https://github.com/reetika0104" target="_blank" rel="noopener noreferrer">
+                      <img src="/github.png" alt="GitHub" className="social-icon" />
+                    </a>
+                    <a href="https://www.linkedin.com/in/reetika-yadav-a38979327" target="_blank" rel="noopener noreferrer">
+                      <img src="/linkedin.png" alt="LinkedIn" className="social-icon" />
+                    </a>
+                    <a href="https://github.com/reetika0104/" target="_blank" rel="noopener noreferrer">
+                      <img src="/profile.png" alt="Portfolio" className="social-icon" />
+                    </a>
+                  </div>
+                </div>
+
                 {/* Vikas Tiwari */}
                 <div className="div3">
                   <span className="dev-name">Vikas Tiwari</span>
