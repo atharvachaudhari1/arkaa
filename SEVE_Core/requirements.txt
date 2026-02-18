@@ -1,9 +1,0 @@
-# Python dependencies for SEVE auxiliary scripts (report generator, scanning, wiping)
-# Install these into the Python interpreter used by the Electron app
-# If using the embedded interpreter at ./python/python.exe:
-#   "python/python.exe" -m pip install -r requirements.txt
-# If using system Python:
-#   python -m pip install -r requirements.txt
-
-reportlab==4.0.9
-Pillow==10.4.0

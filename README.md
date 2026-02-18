@@ -3,10 +3,10 @@
 <table style="background: #1a1a1a; width: 100%; border: none; padding: 30px 0;" border="0">
 <tr>
 <td style="text-align: center; vertical-align: middle; padding: 20px;">
-<img src="SEVE_Web/public/seve.png" alt="SEVE Logo" width="150" style="margin-right: 30px;"/>
+<img src="Arka_Web/public/Arka.png" alt="Arka Logo" width="150" style="margin-right: 30px;"/>
 </td>
 <td style="text-align: left; vertical-align: middle; color: white; padding: 20px;">
-<h1 style="color: #ffffff; font-size: 4em; margin: 0; font-weight: bold; letter-spacing: 0.1em;">SEVE</h1>
+<h1 style="color: #ffffff; font-size: 4em; margin: 0; font-weight: bold; letter-spacing: 0.1em;">Arka</h1>
 <h3 style="color: #cccccc; font-size: 1.2em; margin: 10px 0; font-weight: normal; letter-spacing: 0.05em;">
 <strong>S</strong>ECURE <strong>E</strong>RASURE & <strong>V</strong>ERIFICATION <strong>E</strong>NGINE
 </h3>
@@ -45,13 +45,13 @@ Every day, millions of devices are resold, recycled, or repurposed with **sensit
 
 ---
 
-## 💡 The SEVE Solution
+## 💡 The Arka Solution
 
-SEVE is the **first AI-powered storage intelligence platform** that doesn't just erase data—it **understands your system**, identifies hidden risks, and provides **forensic-level secure erasure** with complete verification.
+Arka is the **first AI-powered storage intelligence platform** that doesn't just erase data—it **understands your system**, identifies hidden risks, and provides **forensic-level secure erasure** with complete verification.
 
-### Why SEVE is Different
+### Why Arka is Different
 
-| Traditional Tools | SEVE |
+| Traditional Tools | Arka |
 |------------------|------|
 | ❌ Blind deletion without context | ✅ AI-driven storage analysis |
 | ❌ No visibility into what's being erased | ✅ Interactive risk assessment |
@@ -99,7 +99,7 @@ SEVE is the **first AI-powered storage intelligence platform** that doesn't just
 
 ```mermaid
 graph LR
-    A[Launch SEVE] --> B[System Scan]
+    A[Launch Arka] --> B[System Scan]
     B --> C[AI Analysis]
     C --> D[Risk Assessment]
     D --> E[User Decision]
@@ -107,7 +107,7 @@ graph LR
     F --> G[Verification Report]
 ```
 
-1. **Launch with Admin Rights** - SEVE requires elevated privileges for deep disk access
+1. **Launch with Admin Rights** - Arka requires elevated privileges for deep disk access
 2. **Intelligent Discovery** - Scans all connected drives, partitions, and storage devices
 3. **AI-Powered Analysis** - Asks contextual questions about your usage patterns
 4. **Risk Visualization** - Displays security risks, sensitive data locations, and health metrics
@@ -141,11 +141,11 @@ graph LR
 
 ## 🏗️ Architecture
 
-SEVE is built as a **native desktop application** with three core modules:
+Arka is built as a **native desktop application** with three core modules:
 
-- **SEVE_Core** - Python-based engine for disk operations and secure erasure
-- **SEVE_AI** - Machine learning models for pattern analysis and risk detection
-- **SEVE_Web** - Modern React-based dashboard for visualization
+- **Arka_Core** - Python-based engine for disk operations and secure erasure
+- **Arka_AI** - Machine learning models for pattern analysis and risk detection
+- **Arka_Web** - Modern React-based dashboard for visualization
 
 ### Tech Stack
 
@@ -182,7 +182,7 @@ SEVE is built as a **native desktop application** with three core modules:
 
 ## 🛡️ Security & Compliance
 
-SEVE meets industry standards for secure data erasure:
+Arka meets industry standards for secure data erasure:
 
 - ✅ **DoD 5220.22-M** - US Department of Defense standard
 - ✅ **NIST SP 800-88** - Guidelines for Media Sanitization
@@ -205,7 +205,7 @@ SEVE meets industry standards for secure data erasure:
 
 <div align="center">
 
-### The team behind SEVE
+### The team behind Arka
 
 </div>
 
@@ -250,11 +250,11 @@ SEVE meets industry standards for secure data erasure:
 
 ## 📞 Contact Us
 
-- 📧 Email: seve.engine@gmail.com
+- 📧 Email: Arka.engine@gmail.com
 
 ## 📄 License
 
-SEVE Core is licensed under the MIT License. See [LICENSE](./LICENSE) for details.
+Arka Core is licensed under the MIT License. See [LICENSE](./LICENSE) for details.
 
 AI models and enterprise features require a commercial license.
 
@@ -264,6 +264,6 @@ AI models and enterprise features require a commercial license.
 
 **Built with ❤️ by DeadCode Labs for KNOWCODE 3.0**
 
-⭐ **Star us on GitHub** if SEVE helps secure your data!
+⭐ **Star us on GitHub** if Arka helps secure your data!
 
 </div>

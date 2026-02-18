@@ -1,0 +1,162 @@
+{
+  "scanner_version": "2.2 Windows Enhanced",
+  "total_drives": 1,
+  "drives": [
+    {
+      "drive": "D:\\",
+      "model": "SAMSUNG MZVLQ512HBLU-00B",
+      "filesystem": "NTFS/FAT/exFAT",
+      "total_space_bytes": 53686038528,
+      "used_space_bytes": 3410522112,
+      "free_space_bytes": 50275516416,
+      "total_space_human": "50.00 GB",
+      "used_space_human": "3.18 GB",
+      "free_space_human": "46.82 GB",
+      "usage_percentage": 6.4,
+      "scan_mode": "Filesystem",
+      "count_accuracy": "Exact",
+      "scan_duration_seconds": 5.1,
+      "media_type": "HDD",
+      "file_analysis": {
+        "total_files": 61766,
+        "total_directories": 14407,
+        "skipped_errors": 0,
+        "categories": {
+          "Documents": {
+            "count": 387,
+            "size": 162955185
+          },
+          "Media": {
+            "count": 371,
+            "size": 156050366
+          },
+          "Archives": {
+            "count": 15,
+            "size": 312049817
+          },
+          "Executables": {
+            "count": 418,
+            "size": 1073289856
+          },
+          "Other": {
+            "count": 60575,
+            "size": 1426207528
+          }
+        },
+        "largest_files": [
+          {
+            "name": "Arka.zip",
+            "path": "D:\\PROJECTS\\Arka.zip",
+            "readable_path": "D:\\PROJECTS\\Arka.zip",
+            "size": 264866008
+          },
+          {
+            "name": "electron.exe",
+            "path": "D:\\PROJECTS\\Arka\\node_modules\\electron\\dist\\electron.exe",
+            "readable_path": "D:\\PROJECTS\\Arka\\node_modules\\electron\\dist\\electron.exe",
+            "size": 211136512
+          },
+          {
+            "name": "electron.exe",
+            "path": "D:\\$RECYCLE.BIN\\S-1-5-21-1989293807-3079519184-1796339753-1001\\$R8HCY8S\\O-Zone\\BlueBox\\frontend\\electron-desktop-app\\node_modules\\electron\\dist\\electron.exe",
+            "readable_path": "D:\\$RECYCLE.BIN\\S-1-5-21-1989293807-3079519184-1796339753-1001\\$R8HCY8S\\O-Zone\\BlueBox\\frontend\\electron-desktop-app\\node_modules\\electron\\dist\\electron.exe",
+            "size": 163325952
+          },
+          {
+            "name": "BlueBox.exe",
+            "path": "D:\\$RECYCLE.BIN\\S-1-5-21-1989293807-3079519184-1796339753-1001\\$R8HCY8S\\O-Zone\\README1\\bluebox-portable\\BlueBox.exe",
+            "readable_path": "D:\\$RECYCLE.BIN\\S-1-5-21-1989293807-3079519184-1796339753-1001\\$R8HCY8S\\O-Zone\\README1\\bluebox-portable\\BlueBox.exe",
+            "size": 163325952
+          },
+          {
+            "name": "bluebox.exe",
+            "path": "D:\\$RECYCLE.BIN\\S-1-5-21-1989293807-3079519184-1796339753-1001\\$R8HCY8S\\O-Zone\\README1\\bluebox.exe",
+            "readable_path": "D:\\$RECYCLE.BIN\\S-1-5-21-1989293807-3079519184-1796339753-1001\\$R8HCY8S\\O-Zone\\README1\\bluebox.exe",
+            "size": 163325952
+          },
+          {
+            "name": "electron.exe",
+            "path": "D:\\$RECYCLE.BIN\\S-1-5-21-1989293807-3079519184-1796339753-1001\\$R8HCY8S\\O-Zone\\README1\\node_modules\\electron\\dist\\electron.exe",
+            "readable_path": "D:\\$RECYCLE.BIN\\S-1-5-21-1989293807-3079519184-1796339753-1001\\$R8HCY8S\\O-Zone\\README1\\node_modules\\electron\\dist\\electron.exe",
+            "size": 163325952
+          }
+        ],
+        "sensitive_files": [
+          {
+            "type": "SensitiveName",
+            "name": "macroExpander.d.ts",
+            "path": "D:\\$RECYCLE.BIN\\S-1-5-21-1989293807-3079519184-1796339753-1001\\$R8HCY8S\\O-Zone\\README1\\node_modules\\app-builder-lib\\out\\util\\macroExpander.d.ts",
+            "readable_path": "D:\\$RECYCLE.BIN\\S-1-5-21-1989293807-3079519184-1796339753-1001\\$R8HCY8S\\O-Zone\\README1\\node_modules\\app-builder-lib\\out\\util\\macroExpander.d.ts",
+            "size": 237
+          },
+          {
+            "type": "SensitiveName",
+            "name": "macroExpander.js",
+            "path": "D:\\$RECYCLE.BIN\\S-1-5-21-1989293807-3079519184-1796339753-1001\\$R8HCY8S\\O-Zone\\README1\\node_modules\\app-builder-lib\\out\\util\\macroExpander.js",
+            "readable_path": "D:\\$RECYCLE.BIN\\S-1-5-21-1989293807-3079519184-1796339753-1001\\$R8HCY8S\\O-Zone\\README1\\node_modules\\app-builder-lib\\out\\util\\macroExpander.js",
+            "size": 2694
+          },
+          {
+            "type": "SensitiveName",
+            "name": "macroExpander.js.map",
+            "path": "D:\\$RECYCLE.BIN\\S-1-5-21-1989293807-3079519184-1796339753-1001\\$R8HCY8S\\O-Zone\\README1\\node_modules\\app-builder-lib\\out\\util\\macroExpander.js.map",
+            "readable_path": "D:\\$RECYCLE.BIN\\S-1-5-21-1989293807-3079519184-1796339753-1001\\$R8HCY8S\\O-Zone\\README1\\node_modules\\app-builder-lib\\out\\util\\macroExpander.js.map",
+            "size": 4262
+          },
+          {
+            "type": "SensitiveName",
+            "name": "call_account_api.py",
+            "path": "D:\\$RECYCLE.BIN\\S-1-5-21-1989293807-3079519184-1796339753-1001\\$RB22BGP\\venv\\Lib\\site-packages\\cloudinary\\api_client\\call_account_api.py",
+            "readable_path": "D:\\$RECYCLE.BIN\\S-1-5-21-1989293807-3079519184-1796339753-1001\\$RB22BGP\\venv\\Lib\\site-packages\\cloudinary\\api_client\\call_account_api.py",
+            "size": 1700
+          },
+          {
+            "type": "SensitiveName",
+            "name": "call_account_api.cpython-314.pyc",
+            "path": "D:\\$RECYCLE.BIN\\S-1-5-21-1989293807-3079519184-1796339753-1001\\$RB22BGP\\venv\\Lib\\site-packages\\cloudinary\\api_client\\__pycache__\\call_account_api.cpython-314.pyc",
+            "readable_path": "D:\\$RECYCLE.BIN\\S-1-5-21-1989293807-3079519184-1796339753-1001\\$RB22BGP\\venv\\Lib\\site-packages\\cloudinary\\api_client\\__pycache__\\call_account_api.cpython-314.pyc",
+            "size": 2174
+          },
+          {
+            "type": "SensitiveName",
+            "name": "account.py",
+            "path": "D:\\$RECYCLE.BIN\\S-1-5-21-1989293807-3079519184-1796339753-1001\\$RB22BGP\\venv\\Lib\\site-packages\\cloudinary\\provisioning\\account.py",
+            "readable_path": "D:\\$RECYCLE.BIN\\S-1-5-21-1989293807-3079519184-1796339753-1001\\$RB22BGP\\venv\\Lib\\site-packages\\cloudinary\\provisioning\\account.py",
+            "size": 19587
+          },
+          {
+            "type": "SensitiveName",
+            "name": "account_config.py",
+            "path": "D:\\$RECYCLE.BIN\\S-1-5-21-1989293807-3079519184-1796339753-1001\\$RB22BGP\\venv\\Lib\\site-packages\\cloudinary\\provisioning\\account_config.py",
+            "readable_path": "D:\\$RECYCLE.BIN\\S-1-5-21-1989293807-3079519184-1796339753-1001\\$RB22BGP\\venv\\Lib\\site-packages\\cloudinary\\provisioning\\account_config.py",
+            "size": 1112
+          },
+          {
+            "type": "SensitiveName",
+            "name": "account.cpython-314.pyc",
+            "path": "D:\\$RECYCLE.BIN\\S-1-5-21-1989293807-3079519184-1796339753-1001\\$RB22BGP\\venv\\Lib\\site-packages\\cloudinary\\provisioning\\__pycache__\\account.cpython-314.pyc",
+            "readable_path": "D:\\$RECYCLE.BIN\\S-1-5-21-1989293807-3079519184-1796339753-1001\\$RB22BGP\\venv\\Lib\\site-packages\\cloudinary\\provisioning\\__pycache__\\account.cpython-314.pyc",
+            "size": 19330
+          },
+          {
+            "type": "SensitiveName",
+            "name": "account_config.cpython-314.pyc",
+            "path": "D:\\$RECYCLE.BIN\\S-1-5-21-1989293807-3079519184-1796339753-1001\\$RB22BGP\\venv\\Lib\\site-packages\\cloudinary\\provisioning\\__pycache__\\account_config.cpython-314.pyc",
+            "readable_path": "D:\\$RECYCLE.BIN\\S-1-5-21-1989293807-3079519184-1796339753-1001\\$RB22BGP\\venv\\Lib\\site-packages\\cloudinary\\provisioning\\__pycache__\\account_config.cpython-314.pyc",
+            "size": 2361
+          },
+          {
+            "type": "SensitiveName",
+            "name": "unusable_password_field.css",
+            "path": "D:\\$RECYCLE.BIN\\S-1-5-21-1989293807-3079519184-1796339753-1001\\$RB22BGP\\venv\\Lib\\site-packages\\django\\contrib\\admin\\static\\admin\\css\\unusable_password_field.css",
+            "readable_path": "D:\\$RECYCLE.BIN\\S-1-5-21-1989293807-3079519184-1796339753-1001\\$RB22BGP\\venv\\Lib\\site-packages\\django\\contrib\\admin\\static\\admin\\css\\unusable_password_field.css",
+            "size": 663
+          }
+        ]
+      }
+    }
+  ],
+  "user_remarks": {},
+  "deletion_report": null,
+  "total_scan_seconds": 5.1
+}
