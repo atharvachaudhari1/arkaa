@@ -32,6 +32,24 @@ const ArkaAnimation = ({ onAnimationComplete }) => {
     let audioCtx = null;
     try { audioCtx = new AudioCtx(); } catch (e) { audioCtx = null; }
 
+    // Mobile browsers suspend AudioContext until user gesture — unlock on first touch/click
+    function unlockAudio() {
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume().catch(() => { });
+      }
+      // Hide the tap hint once user interacts
+      const tapHint = document.getElementById('tapHint');
+      if (tapHint) tapHint.classList.add('hidden');
+    }
+    document.addEventListener('touchstart', unlockAudio, { once: true });
+    document.addEventListener('touchend', unlockAudio, { once: true });
+    document.addEventListener('click', unlockAudio, { once: true });
+
+    // Also try resuming immediately in case gesture already happened
+    if (audioCtx && audioCtx.state === 'suspended') {
+      audioCtx.resume().catch(() => { });
+    }
+
     // Create a short noise buffer for the "clack"
     function makeNoiseBuffer() {
       const duration = 0.03; // 30ms noise
@@ -46,8 +64,16 @@ const ArkaAnimation = ({ onAnimationComplete }) => {
 
     let noiseBuffer = null;
 
+    // Helper to ensure audio context is resumed before playing
+    function ensureAudioResumed() {
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume().catch(() => { });
+      }
+    }
+
     function playTypeMech() {
       if (!audioCtx) return;
+      ensureAudioResumed();
       const now = audioCtx.currentTime;
       if (!noiseBuffer) noiseBuffer = makeNoiseBuffer();
 
@@ -80,6 +106,7 @@ const ArkaAnimation = ({ onAnimationComplete }) => {
 
     function playTypeBell() {
       if (!audioCtx) return;
+      ensureAudioResumed();
       const now = audioCtx.currentTime;
       const bell = audioCtx.createOscillator();
       bell.type = 'triangle';
@@ -97,10 +124,6 @@ const ArkaAnimation = ({ onAnimationComplete }) => {
       if (i < text.length && typingDiv) {
         const ch = text.charAt(i);
         typingDiv.innerHTML += ch;
-        // attempt to resume context in case it was suspended by autoplay policy
-        if (audioCtx && audioCtx.state === 'suspended') {
-          audioCtx.resume().catch(() => { });
-        }
         // Play click only for letters (A-Z)
         if (/[A-Za-z]/.test(ch)) {
           playTypeMech();
@@ -155,7 +178,12 @@ const ArkaAnimation = ({ onAnimationComplete }) => {
     const typingDelay = isMobile ? 2000 : 3500;
     const moveDelay = isMobile ? 5500 : 7500;
 
-    typingTimer = setTimeout(typeWriter, typingDelay);
+    typingTimer = setTimeout(() => {
+      // Hide tap hint when typing starts
+      const tapHint = document.getElementById('tapHint');
+      if (tapHint) tapHint.classList.add('hidden');
+      typeWriter();
+    }, typingDelay);
 
     // Move ARKAA to top after delay
     moveTimer = setTimeout(function () {
@@ -186,6 +214,10 @@ const ArkaAnimation = ({ onAnimationComplete }) => {
       if (mainContainer) {
         mainContainer.removeEventListener('transitionend', handleTransitionEnd);
       }
+      // Clean up audio unlock listeners
+      document.removeEventListener('touchstart', unlockAudio);
+      document.removeEventListener('touchend', unlockAudio);
+      document.removeEventListener('click', unlockAudio);
       // Reset typing div
       if (typingDiv) {
         typingDiv.innerHTML = '';
@@ -194,7 +226,16 @@ const ArkaAnimation = ({ onAnimationComplete }) => {
   }, [onAnimationComplete]);
 
   return (
-    <div className="center-container" id="mainContainer">
+    <div className="center-container" id="mainContainer" onClick={() => {
+      // Unlock audio on tap/click for mobile
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (AudioCtx) {
+        try {
+          const ctx = new AudioCtx();
+          if (ctx.state === 'suspended') ctx.resume();
+        } catch (e) { /* ignore */ }
+      }
+    }}>
       <div className="fade-text-container">
         <div className="fade-text">
           ARKAA
@@ -202,6 +243,7 @@ const ArkaAnimation = ({ onAnimationComplete }) => {
         </div>
       </div>
       <ArkaLogo />
+      <div className="tap-hint" id="tapHint">Tap anywhere for sound</div>
     </div>
   );
 };

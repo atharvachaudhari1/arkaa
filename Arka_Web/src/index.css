@@ -262,6 +262,39 @@ body {
   border-radius: 50%;
 }
 
+/* Tap hint for mobile audio unlock */
+.tap-hint {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.1em;
+  animation: tapPulse 2s ease-in-out infinite;
+  z-index: 20;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.tap-hint.hidden {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+@keyframes tapPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
+
+/* Hide tap hint on desktop */
+@media (min-width: 1025px) {
+  .tap-hint {
+    display: none;
+  }
+}
+
 /* Main Content Styles */
 .main-content {
   opacity: 0;
