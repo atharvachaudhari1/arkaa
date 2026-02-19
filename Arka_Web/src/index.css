@@ -1320,11 +1320,23 @@ body {
   height: 60px;
   opacity: 0.8;
   transition: all 0.3s ease;
+  display: block;
 }
 
 .social-icon:hover {
   opacity: 1;
   transform: translateY(-3px);
+}
+
+/* Instagram SVG icon styling - make it match other icons */
+.social-icon.instagram-icon {
+  color: rgba(255, 255, 255, 0.8);
+  fill: rgba(255, 255, 255, 0.8);
+}
+
+.social-icon.instagram-icon:hover {
+  color: rgba(255, 255, 255, 1);
+  fill: rgba(255, 255, 255, 1);
 }
 
 /* GitHub Link Styling */

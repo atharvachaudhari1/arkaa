@@ -32,11 +32,38 @@ const ArkaAnimation = ({ onAnimationComplete }) => {
     let audioCtx = null;
     try { audioCtx = new AudioCtx(); } catch (e) { audioCtx = null; }
 
-    // Mobile browsers suspend AudioContext until user gesture — unlock on first touch/click
-    function unlockAudio() {
-      if (audioCtx && audioCtx.state === 'suspended') {
-        audioCtx.resume().catch(() => { });
+    // Auto-unlock audio context by playing a silent tone immediately
+    // This works on desktop and helps on mobile (though mobile may still require gesture)
+    function unlockAudioContext() {
+      if (!audioCtx) return;
+      
+      // Create and play a silent buffer to unlock audio context
+      try {
+        const buffer = audioCtx.createBuffer(1, 1, 22050);
+        const source = audioCtx.createBufferSource();
+        source.buffer = buffer;
+        source.connect(audioCtx.destination);
+        source.start(0);
+        source.stop(0.001);
+        
+        // Also try resuming if suspended
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume().catch(() => { });
+        }
+      } catch (e) {
+        // Fallback: just try to resume
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume().catch(() => { });
+        }
       }
+    }
+
+    // Try to unlock immediately on load
+    unlockAudioContext();
+    
+    // Also try on any user interaction (as fallback for strict mobile browsers)
+    function unlockAudio() {
+      unlockAudioContext();
       // Hide the tap hint once user interacts
       const tapHint = document.getElementById('tapHint');
       if (tapHint) tapHint.classList.add('hidden');
@@ -44,11 +71,7 @@ const ArkaAnimation = ({ onAnimationComplete }) => {
     document.addEventListener('touchstart', unlockAudio, { once: true });
     document.addEventListener('touchend', unlockAudio, { once: true });
     document.addEventListener('click', unlockAudio, { once: true });
-
-    // Also try resuming immediately in case gesture already happened
-    if (audioCtx && audioCtx.state === 'suspended') {
-      audioCtx.resume().catch(() => { });
-    }
+    document.addEventListener('mousedown', unlockAudio, { once: true });
 
     // Create a short noise buffer for the "clack"
     function makeNoiseBuffer() {
@@ -226,16 +249,7 @@ const ArkaAnimation = ({ onAnimationComplete }) => {
   }, [onAnimationComplete]);
 
   return (
-    <div className="center-container" id="mainContainer" onClick={() => {
-      // Unlock audio on tap/click for mobile
-      const AudioCtx = window.AudioContext || window.webkitAudioContext;
-      if (AudioCtx) {
-        try {
-          const ctx = new AudioCtx();
-          if (ctx.state === 'suspended') ctx.resume();
-        } catch (e) { /* ignore */ }
-      }
-    }}>
+    <div className="center-container" id="mainContainer">
       <div className="fade-text-container">
         <div className="fade-text">
           ARKAA
