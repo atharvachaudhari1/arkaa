@@ -150,21 +150,20 @@ const ArkaAnimation = ({ onAnimationComplete }) => {
     let typingTimer;
     let moveTimer;
 
-    if (isMobile) {
-      // On mobile, skip the pre-typing delay and typewriter, go straight to logo
-      startFinalSequence();
-    } else {
-      // Desktop sequence remains the same
-      typingTimer = setTimeout(typeWriter, 3500);
+    // Show full animation on both mobile and desktop
+    // Mobile gets slightly faster timing
+    const typingDelay = isMobile ? 2000 : 3500;
+    const moveDelay = isMobile ? 5500 : 7500;
 
-      // Move Arka to top after 7.5 seconds
-      moveTimer = setTimeout(function () {
-        const mainContainer = document.getElementById('mainContainer');
-        if (mainContainer && !mainContainer.classList.contains('final-state')) {
-          mainContainer.classList.add('top-center');
-        }
-      }, 7500);
-    }
+    typingTimer = setTimeout(typeWriter, typingDelay);
+
+    // Move ARKAA to top after delay
+    moveTimer = setTimeout(function () {
+      const mainContainer = document.getElementById('mainContainer');
+      if (mainContainer && !mainContainer.classList.contains('final-state')) {
+        mainContainer.classList.add('top-center');
+      }
+    }, moveDelay);
 
     // Show borders after Arka moves to top
     const mainContainer = document.getElementById('mainContainer');
