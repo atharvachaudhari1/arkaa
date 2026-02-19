@@ -20,7 +20,7 @@ const ContactSection = () => {
                     <a href="https://github.com/atharvachaudhari1" target="_blank" rel="noopener noreferrer">
                       <img src="/github.png" alt="GitHub" className="social-icon" />
                     </a>
-                    <a href="https://www.linkedin.com/in/atharvachaudhari1/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.linkedin.com/in/atharva-chaudhari-89a469329/" target="_blank" rel="noopener noreferrer">
                       <img src="/linkedin.png" alt="LinkedIn" className="social-icon" />
                     </a>
                   </div>
