@@ -31,10 +31,10 @@ const ContactSection = () => {
                   <span className="dev-name">Allan Fernandes</span>
                   <span className="dev-role">Backend Developer</span>
                   <div className="dev-social-links">
-                    <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/fernandesallan745-eng" target="_blank" rel="noopener noreferrer">
                       <img src="/github.png" alt="GitHub" className="social-icon" />
                     </a>
-                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.linkedin.com/in/allan-fernandes-8a3497349" target="_blank" rel="noopener noreferrer">
                       <img src="/linkedin.png" alt="LinkedIn" className="social-icon" />
                     </a>
                   </div>
@@ -45,10 +45,7 @@ const ContactSection = () => {
                   <span className="dev-name">Saanvi Chamoli</span>
                   <span className="dev-role">Frontend Developer</span>
                   <div className="dev-social-links">
-                    <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-                      <img src="/github.png" alt="GitHub" className="social-icon" />
-                    </a>
-                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.linkedin.com/in/saanvi-chamoli-8908b8312" target="_blank" rel="noopener noreferrer">
                       <img src="/linkedin.png" alt="LinkedIn" className="social-icon" />
                     </a>
                   </div>
