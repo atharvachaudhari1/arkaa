@@ -12,70 +12,44 @@ const ContactSection = () => {
           <div className="company-details" id="team">
             <div className="detail-item">
               <div className="parent">
-                {/* Utsav Singh */}
+                {/* Atharva Chaudhari */}
                 <div className="div1">
-                  <span className="dev-name">Utsav Singh</span>
+                  <span className="dev-name">Atharva Chaudhari</span>
                   <span className="dev-role">Full-Stack Developer</span>
                   <div className="dev-social-links">
-                    <a href="https://github.com/Utsav-Singh-35" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/atharvachaudhari1" target="_blank" rel="noopener noreferrer">
                       <img src="/github.png" alt="GitHub" className="social-icon" />
                     </a>
-                    <a href="https://www.linkedin.com/in/utsavsingh35/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.linkedin.com/in/atharvachaudhari1/" target="_blank" rel="noopener noreferrer">
                       <img src="/linkedin.png" alt="LinkedIn" className="social-icon" />
-                    </a>
-                    <a href="https://utsavsingh35.vercel.app/" target="_blank" rel="noopener noreferrer">
-                      <img src="/profile.png" alt="Portfolio" className="social-icon" />
                     </a>
                   </div>
                 </div>
 
-                {/* Om Singh */}
+                {/* Allan Fernandes */}
                 <div className="div2">
-                  <span className="dev-name">Om Singh</span>
+                  <span className="dev-name">Allan Fernandes</span>
                   <span className="dev-role">Backend Developer</span>
                   <div className="dev-social-links">
-                    <a href="https://github.com/Jayom5797" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
                       <img src="/github.png" alt="GitHub" className="social-icon" />
                     </a>
-                    <a href="https://www.linkedin.com/in/5797omsingh/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
                       <img src="/linkedin.png" alt="LinkedIn" className="social-icon" />
-                    </a>
-                    <a href="https://om07.vercel.app/" target="_blank" rel="noopener noreferrer">
-                      <img src="/profile.png" alt="Portfolio" className="social-icon" />
                     </a>
                   </div>
                 </div>
 
-                {/* Reetika Yadav */}
-                <div className="div2">
-                  <span className="dev-name">Reetika Yadav</span>
+                {/* Saanvi Chamoli */}
+                <div className="div3">
+                  <span className="dev-name">Saanvi Chamoli</span>
                   <span className="dev-role">Frontend Developer</span>
                   <div className="dev-social-links">
-                    <a href="https://github.com/reetika0104" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
                       <img src="/github.png" alt="GitHub" className="social-icon" />
                     </a>
-                    <a href="https://www.linkedin.com/in/reetika-yadav-a38979327" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
                       <img src="/linkedin.png" alt="LinkedIn" className="social-icon" />
-                    </a>
-                    <a href="https://github.com/reetika0104/" target="_blank" rel="noopener noreferrer">
-                      <img src="/profile.png" alt="Portfolio" className="social-icon" />
-                    </a>
-                  </div>
-                </div>
-
-                {/* Vikas Tiwari */}
-                <div className="div3">
-                  <span className="dev-name">Vikas Tiwari</span>
-                  <span className="dev-role">AI/ML Engineer</span>
-                  <div className="dev-social-links">
-                    <a href="https://github.com/Cyberexe1" target="_blank" rel="noopener noreferrer">
-                      <img src="/github.png" alt="GitHub" className="social-icon" />
-                    </a>
-                    <a href="https://www.linkedin.com/in/1045-vikas-tiwari/" target="_blank" rel="noopener noreferrer">
-                      <img src="/linkedin.png" alt="LinkedIn" className="social-icon" />
-                    </a>
-                    <a href="https://vikas-tiwari-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer">
-                      <img src="/profile.png" alt="Portfolio" className="social-icon" />
                     </a>
                   </div>
                 </div>

@@ -17,7 +17,7 @@ const Footer = () => {
           <div className="footer-company">
             <p className="detail-label" style={{ marginBottom: '0.5rem' }}>TEAM ARKAA</p>
             <p className="detail-value" style={{ fontSize: '0.85rem', opacity: 0.6 }}>Innovate · Create · Deliver</p>
-            <p className="detail-value" style={{ fontSize: '0.85rem', opacity: 0.6 }}>A passionate team of developers building digital products that matter.</p>
+            <p className="detail-value" style={{ fontSize: '0.85rem', opacity: 0.6 }}>Atharva · Allan · Saanvi — three developers building the future, one project at a time.</p>
           </div>
         </div>
 
@@ -25,8 +25,7 @@ const Footer = () => {
           <h3>Contact</h3>
           <ul className="footer-links">
             <li><a href="mailto:Arka.engine@gmail.com">Arka.engine@gmail.com <span>→</span></a></li>
-            <li><a href="tel:+919619290827">+91 9619290827 <span>→</span></a></li>
-            <li><a href="https://github.com/Utsav-Singh-35" target="_blank" rel="noopener noreferrer">GitHub <span>→</span></a></li>
+            <li><a href="https://github.com/atharvachaudhari1" target="_blank" rel="noopener noreferrer">GitHub <span>→</span></a></li>
           </ul>
         </div>
 
