@@ -6,7 +6,6 @@ import GetArkaForm from './components/GetArkaForm.jsx';
 import Home from './pages/Home.jsx';
 import HowItWorks from './pages/HowItWorks.jsx';
 import Docs from './pages/Docs.jsx';
-import Admin from './pages/Admin.jsx';
 import Footer from './components/Footer.jsx';
 import './App.css';
 
@@ -51,7 +50,7 @@ function App() {
     requestAnimationFrame(() => window.scrollTo(0, 0));
   };
 
-  const handleGetArkaClick = () => {
+  const handleContactClick = () => {
     setIsFormOpen(true);
   };
 
@@ -63,22 +62,21 @@ function App() {
     <Router>
       <ScrollHandler />
       <div className="app-container">
-        {/* Arka Starting Animation - Removed from DOM once complete */}
+        {/* ARKAA Starting Animation - Removed from DOM once complete */}
         {!showMainContent && <ArkaAnimation onAnimationComplete={handleAnimationComplete} />}
 
         {/* Main Website Content (hidden initially) */}
         <div className={`main-content ${showMainContent ? 'visible' : ''}`} id="mainContent">
-          <Navbar onGetArkaClick={handleGetArkaClick} />
+          <Navbar onContactClick={handleContactClick} />
           <Routes>
-            <Route path="/" element={<Home onGetArkaClick={handleGetArkaClick} />} />
-            <Route path="/how-it-works" element={<HowItWorks />} />
-            <Route path="/docs" element={<Docs />} />
-            <Route path="/admin" element={<Admin />} />
+            <Route path="/" element={<Home onContactClick={handleContactClick} />} />
+            <Route path="/our-work" element={<HowItWorks />} />
+            <Route path="/skills" element={<Docs />} />
           </Routes>
           <Footer />
         </div>
 
-        {/* Get Arka Form Modal - Global */}
+        {/* Hire Us Form Modal - Global */}
         <GetArkaForm isOpen={isFormOpen} onClose={handleCloseForm} />
       </div>
     </Router>

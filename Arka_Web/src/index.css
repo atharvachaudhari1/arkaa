@@ -1248,6 +1248,8 @@ body {
   justify-content: space-between;
   padding: 3rem 2rem;
   transition: all 0.3s ease;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .div1:hover,
@@ -1262,6 +1264,16 @@ body {
   font-family: 'Sesbania', serif;
   font-size: 3.2rem;
   color: white;
+}
+
+.dev-role {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-top: 0.3rem;
 }
 
 .dev-social-links {

@@ -1,14 +1,13 @@
 import { useState } from 'react';
-import { User, Mail, Monitor, Building, Target, Crown } from 'lucide-react';
+import { User, Mail, MessageSquare, Building, Briefcase } from 'lucide-react';
 
 const GetArkaForm = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
     userName: '',
     userEmail: '',
-    product: '',
-    purpose: '',
-    organisation: '',
-    premiumType: ''
+    projectType: '',
+    message: '',
+    organisation: ''
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -22,69 +21,56 @@ const GetArkaForm = ({ isOpen, onClose }) => {
     }));
   };
 
-  const sendEmailNotification = async (formData) => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
     try {
       const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
 
-      console.log('🔍 Web3Forms Debug Info:');
-      console.log('Access Key:', accessKey ? 'Set ✅' : 'Missing ❌');
-
       if (!accessKey) {
-        console.warn('Web3Forms access key missing, skipping email notification');
-        return false;
+        // Fallback: just show success
+        setSubmitStatus('success');
+        setFormData({
+          userName: '',
+          userEmail: '',
+          projectType: '',
+          message: '',
+          organisation: ''
+        });
+        setTimeout(() => {
+          onClose();
+          setSubmitStatus(null);
+        }, 2000);
+        return;
       }
 
-      // Prepare form data for Web3Forms
       const web3FormsData = new FormData();
       web3FormsData.append('access_key', accessKey);
-      web3FormsData.append('subject', `🔒 New Arka Request from ${formData.userName}`);
+      web3FormsData.append('subject', `🚀 New Project Inquiry from ${formData.userName}`);
       web3FormsData.append('from_name', formData.userName);
       web3FormsData.append('email', formData.userEmail);
-      
-      // Get platform-specific icon
-      const getPlatformIcon = (platform) => {
-        switch (platform.toLowerCase()) {
-          case 'windows': return '🪟';
-          case 'linux': return '🐧';
-          case 'macos': return '🍎';
-          default: return '💻';
-        }
-      };
 
-      // Get premium type icon
-      const getPremiumIcon = (type) => {
-        switch (type.toLowerCase()) {
-          case 'professional': return '💼';
-          case 'enterprise': return '🏢';
-          default: return '👑';
-        }
-      };
-
-      // Create formatted message with proper line breaks and relevant icons
-      const message = `
-🔒 New Arka Request Details:
+      const emailMessage = `
+🚀 New Project Inquiry — ARKAA Team Portfolio
 
 👤 Name: ${formData.userName}
 📧 Email: ${formData.userEmail}
-${getPlatformIcon(formData.product)} Platform: ${formData.product.charAt(0).toUpperCase() + formData.product.slice(1)}
+💼 Project Type: ${formData.projectType || 'Not specified'}
 🏢 Organization: ${formData.organisation || 'Not specified'}
-${getPremiumIcon(formData.premiumType)} Premium Type: ${formData.premiumType.charAt(0).toUpperCase() + formData.premiumType.slice(1)}
 
-🎯 Purpose:
-${formData.purpose}
+💬 Message:
+${formData.message}
 
 📅 Submitted: ${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}
 
 ---
-This request was submitted through the Arka website form.
-Reply directly to this email to contact the user.
+This inquiry was submitted through the ARKAA Team Portfolio website.
       `.trim();
 
-      web3FormsData.append('message', message);
+      web3FormsData.append('message', emailMessage);
 
-      console.log('📧 Sending email via Web3Forms...');
-
-      // Send to Web3Forms
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: web3FormsData
@@ -93,68 +79,20 @@ Reply directly to this email to contact the user.
       const result = await response.json();
 
       if (result.success) {
-        console.log('✅ Email sent successfully via Web3Forms:', result);
-        return true;
-      } else {
-        console.error('❌ Web3Forms error:', result.message);
-        return false;
-      }
-
-    } catch (error) {
-      console.error('❌ Failed to send email notification:', error);
-      return false;
-    }
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus(null);
-
-    try {
-      // Submit to backend API
-      const response = await fetch('/api/Arka-request', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...formData,
-          timestamp: new Date().toISOString()
-        })
-      });
-
-      if (response.ok) {
-        const result = await response.json();
-        
-        // Send email notification
-        const emailSent = await sendEmailNotification(formData);
-        
         setSubmitStatus('success');
         setFormData({
           userName: '',
           userEmail: '',
-          product: '',
-          purpose: '',
-          organisation: '',
-          premiumType: ''
+          projectType: '',
+          message: '',
+          organisation: ''
         });
-        
-        // Show different message based on database availability
-        if (!result.savedToDatabase) {
-          console.log('Form submitted but saved locally (database unavailable)');
-        }
-        
-        if (emailSent) {
-          console.log('Email notification sent to Arka team');
-        }
-        
         setTimeout(() => {
           onClose();
           setSubmitStatus(null);
         }, 2000);
       } else {
-        throw new Error('Failed to submit form');
+        throw new Error('Failed to submit');
       }
     } catch (error) {
       console.error('Form submission error:', error);
@@ -170,8 +108,8 @@ Reply directly to this email to contact the user.
     <div className="form-overlay" onClick={onClose}>
       <div className="form-container" onClick={(e) => e.stopPropagation()}>
         <div className="form-header">
-          <h2>Get Arka</h2>
-          <p>Request access to Arka's AI-powered data destruction platform</p>
+          <h2>Hire Us</h2>
+          <p>Tell us about your project and we'll get back to you shortly</p>
           <button className="form-close" onClick={onClose}>×</button>
         </div>
 
@@ -209,38 +147,25 @@ Reply directly to this email to contact the user.
           </div>
 
           <div className="form-group">
-            <label htmlFor="product">
-              <Monitor className="form-icon" />
-              Product Platform *
+            <label htmlFor="projectType">
+              <Briefcase className="form-icon" />
+              Project Type *
             </label>
             <select
-              id="product"
-              name="product"
-              value={formData.product}
+              id="projectType"
+              name="projectType"
+              value={formData.projectType}
               onChange={handleInputChange}
               required
             >
-              <option value="">Select platform</option>
-              <option value="windows">Windows</option>
-              <option value="linux">Linux</option>
-              <option value="macos">macOS</option>
+              <option value="">Select project type</option>
+              <option value="web-app">Web Application</option>
+              <option value="mobile-app">Mobile Application</option>
+              <option value="desktop-app">Desktop Application</option>
+              <option value="ai-ml">AI / Machine Learning</option>
+              <option value="full-product">Full Product Development</option>
+              <option value="other">Other</option>
             </select>
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="purpose">
-              <Target className="form-icon" />
-              Purpose *
-            </label>
-            <textarea
-              id="purpose"
-              name="purpose"
-              value={formData.purpose}
-              onChange={handleInputChange}
-              required
-              placeholder="Describe your use case and requirements"
-              rows="3"
-            />
           </div>
 
           <div className="form-group">
@@ -259,32 +184,30 @@ Reply directly to this email to contact the user.
           </div>
 
           <div className="form-group">
-            <label htmlFor="premiumType">
-              <Crown className="form-icon" />
-              Premium Type *
+            <label htmlFor="message">
+              <MessageSquare className="form-icon" />
+              Project Details *
             </label>
-            <select
-              id="premiumType"
-              name="premiumType"
-              value={formData.premiumType}
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
               onChange={handleInputChange}
               required
-            >
-              <option value="">Select premium type</option>
-              <option value="professional">Professional</option>
-              <option value="enterprise">Enterprise</option>
-            </select>
+              placeholder="Describe your project, timeline, and any specific requirements"
+              rows="4"
+            />
           </div>
 
           {submitStatus === 'success' && (
             <div className="form-status success">
-              ✓ Request submitted successfully! We'll contact you soon.
+              ✓ Inquiry sent successfully! We'll get back to you soon.
             </div>
           )}
 
           {submitStatus === 'error' && (
             <div className="form-status error">
-              ✗ Failed to submit request. Please try again.
+              ✗ Failed to send inquiry. Please try again.
             </div>
           )}
 
@@ -297,7 +220,7 @@ Reply directly to this email to contact the user.
               className="btn-primary"
               disabled={isSubmitting}
             >
-              {isSubmitting ? 'Submitting...' : 'Submit Request'}
+              {isSubmitting ? 'Sending...' : 'Send Inquiry'}
             </button>
           </div>
         </form>

@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import ContactSection from '../components/ContactSection.jsx';
-import { Bot, ShieldCheck, Activity, Lock, FileCheck, Zap, Monitor, Smartphone, Usb, Cpu } from 'lucide-react';
+import { Code, Palette, Globe, Cpu, Rocket, Users, Layers, Smartphone, Monitor, Lightbulb } from 'lucide-react';
 
 
-const Home = ({ onGetArkaClick }) => {
+const Home = ({ onContactClick }) => {
 
   return (
     <>
-      {/* Hero Section matching FLUO AI layout */}
+      {/* Hero Section */}
       <section className="hero" id="home">
         {/* Video Background */}
         <video className="hero-video-bg" autoPlay loop muted playsInline>
@@ -19,131 +19,134 @@ const Home = ({ onGetArkaClick }) => {
 
         <div className="hero-content">
           <div className="hero-left">
-            <h1 className="hero-title">DATA DESTRUCTION<br />THAT LEAVES NO TRACE</h1>
+            <h1 className="hero-title">WE BUILD DIGITAL<br />EXPERIENCES THAT MATTER</h1>
             <p className="hero-subtitle">
-              "Arka" ensures your sensitive data doesn't just disappear —<br />
-              it ceases to exist. AI-powered detection, NIST 800-88 compliant<br />
-              erasure, and forensic-level verification. 100% offline.
+              Team ARKAA — a passionate crew of developers, designers,<br />
+              and innovators turning bold ideas into powerful digital<br />
+              products. From concept to deployment, we deliver.
             </p>
           </div>
 
           <div className="hero-right">
             <p className="hero-description">
-              <span className="highlight">"Arka"</span> reads actual file content to detect truly sensitive data, then permanently destroys it with military-grade algorithms — all without ever touching the internet.
+              <span className="highlight">ARKAA</span> is a team of driven technologists who combine cutting-edge development skills with creative design thinking to build products that make an impact.
             </p>
-            <button className="hero-cta" onClick={onGetArkaClick}>Start with Arka</button>
+            <button className="hero-cta" onClick={onContactClick}>Work with Us</button>
           </div>
         </div>
 
         {/* Bottom Section */}
         <div className="hero-bottom">
           <div className="hero-platforms">
-            <span>Available for:</span>
+            <span>We work with:</span>
             <div className="platform-icons">
               <div className="platform-icon">
-                <img src="/icons8-android.svg" alt="Android" className="platform-svg android-icon" />
+                <Code size={24} style={{ color: '#fff' }} />
               </div>
               <div className="platform-icon">
-                <img src="/icons8-linux-96.png" alt="Linux" className="platform-svg linux-icon" />
+                <Palette size={24} style={{ color: '#fff' }} />
               </div>
               <div className="platform-icon">
-                <img src="/icons8-windows.svg" alt="Windows" className="platform-svg windows-icon" />
+                <Globe size={24} style={{ color: '#fff' }} />
               </div>
             </div>
           </div>
 
           <div className="hero-tagline">
-            <p>Intelligent. Offline. Irreversible.</p>
+            <p>Innovate. Create. Deliver.</p>
           </div>
 
-          <div className="version-info">Version 2.4.1</div>
+          <div className="version-info">Est. 2024</div>
         </div>
       </section>
 
-      {/* New Content Sections */}
+      {/* About Section */}
       <section className="section-wrapper" id="about">
-        <span className="section-label">01. ABOUT Arka</span>
-        <h2 className="section-heading">AI-powered data destruction that reads, analyzes, and eliminates.</h2>
+        <span className="section-label">01. ABOUT ARKAA</span>
+        <h2 className="section-heading">A team built on passion, driven by innovation.</h2>
         <p className="about-text-new">
-          Arka (Secure Erase & Verification Engine) combines AI-powered content analysis with NIST 800-88 compliant secure erasure.
-          Unlike traditional tools that only check filenames, Arka reads actual file content—PDFs, documents, images—to detect truly sensitive data.
-          Then it permanently destroys it with military-grade algorithms. All processing happens 100% offline on your device.
+          ARKAA is a team of ambitious developers and creators united by one mission — building technology that solves real problems. 
+          We combine expertise in full-stack development, AI/ML, mobile applications, and UI/UX design to deliver products that stand out. 
+          From hackathons to production-ready solutions, we approach every project with the same fire and dedication.
         </p>
       </section>
 
+      {/* What We Do Section */}
       <section className="section-wrapper">
-        <span className="section-label">02. THE PROBLEM</span>
-        <h2 className="section-heading">Traditional deletion is an illusion.</h2>
+        <span className="section-label">02. WHAT WE DO</span>
+        <h2 className="section-heading">From idea to impact — we cover it all.</h2>
         <div className="problem-grid">
           <div className="problem-card">
-            <h3>Filename-Only Detection</h3>
-            <p>Traditional tools flag "password.txt" but miss "my_notes.txt" containing actual credentials. They can't read PDFs, images, or document content—leading to false positives (flagging tutorials) and false negatives (missing real sensitive data).</p>
+            <h3>Web Development</h3>
+            <p>Modern, responsive web applications built with React, Next.js, and cutting-edge frontend technologies. We craft pixel-perfect interfaces backed by robust, scalable backends using Node.js, Python, and cloud infrastructure.</p>
           </div>
           <div className="problem-card solution-card">
-            <h3>AI Content Analysis</h3>
-            <p>Arka's embedded AI reads actual file content—text, PDFs, DOCX, images via OCR. It understands context, distinguishes tutorials from real credentials, and assigns confidence scores. Find the 47 truly sensitive files among 10,000, not just guess by names.</p>
+            <h3>AI & Machine Learning</h3>
+            <p>Intelligent solutions powered by machine learning, natural language processing, and computer vision. From embedded AI models to cloud-based inference, we bring smart automation to real-world problems.</p>
           </div>
           <div className="problem-card">
-            <h3>Incomplete Erasure</h3>
-            <p>Standard deletion only removes pointers. Even after formatting, data remains recoverable using forensic tools. SSDs with wear-leveling and hidden partitions (HPA/DCO) make complete erasure nearly impossible with basic tools.</p>
+            <h3>Mobile Applications</h3>
+            <p>Cross-platform mobile experiences built with React Native and native Android development. We design apps that feel natural, perform fast, and delight users on every device.</p>
           </div>
           <div className="problem-card solution-card">
-            <h3>NIST 800-88 Compliance</h3>
-            <p>Arka implements military-grade multi-pass overwrite patterns with forensic verification. Direct hardware access bypasses file-system abstractions. Generates cryptographically signed certificates for GDPR, HIPAA, and PCI-DSS audit trails.</p>
+            <h3>Desktop & System Tools</h3>
+            <p>Powerful desktop applications using Electron, Python, and system-level programming. From security tools to productivity apps, we build software that works at every level of the stack.</p>
           </div>
         </div>
       </section>
 
-      <section className="section-wrapper" id="features">
-        <span className="section-label">03. CORE FEATURES</span>
-        <h2 className="section-heading">Intelligence meets irreversibility.</h2>
+      {/* Skills & Expertise Section */}
+      <section className="section-wrapper" id="projects">
+        <span className="section-label">03. OUR EXPERTISE</span>
+        <h2 className="section-heading">Technologies we master, tools we love.</h2>
         <div className="features-grid-new">
           <div className="feature-card-new">
-            <h4><Bot className="feature-icon" /> AI Content Analysis</h4>
-            <p>Embedded LLM reads actual file content (PDFs, DOCX, images via OCR) to detect truly sensitive data. Context-aware with confidence scoring. 100% offline processing.</p>
+            <h4><Code className="feature-icon" /> Frontend Development</h4>
+            <p>React, Next.js, Vite, Tailwind CSS, GSAP animations, Three.js — we build beautiful, responsive interfaces with modern frameworks and libraries.</p>
           </div>
           <div className="feature-card-new">
-            <h4><ShieldCheck className="feature-icon" /> NIST 800-88 Wiping</h4>
-            <p>Military-grade multi-pass overwrite with forensic verification. Direct hardware access for NVMe, SSD, and HDD. Permanent destruction with mathematical proof.</p>
+            <h4><Cpu className="feature-icon" /> Backend & APIs</h4>
+            <p>Node.js, Express, Python, Flask, REST APIs, GraphQL, MongoDB, PostgreSQL — robust server-side architecture that scales with your needs.</p>
           </div>
           <div className="feature-card-new">
-            <h4><Activity className="feature-icon" /> Health Dashboard</h4>
-            <p>SMART monitoring, deleted file recovery, AI storage optimization. Natural language input for configuration recommendations. Track sensitive files across moves/renames.</p>
+            <h4><Lightbulb className="feature-icon" /> AI & ML</h4>
+            <p>TensorFlow, PyTorch, OpenAI, LangChain, Computer Vision, NLP — intelligent features powered by cutting-edge machine learning technologies.</p>
           </div>
           <div className="feature-card-new">
-            <h4><Lock className="feature-icon" /> 100% Offline</h4>
-            <p>Zero internet required. No cloud processing. No telemetry. All AI models embedded locally. Works in air-gapped environments. Military/government ready.</p>
+            <h4><Smartphone className="feature-icon" /> Mobile Development</h4>
+            <p>React Native, Android (Kotlin/Java), responsive PWAs — cross-platform mobile experiences that feel native on every device.</p>
           </div>
           <div className="feature-card-new">
-            <h4><FileCheck className="feature-icon" /> Audit Certificates</h4>
-            <p>Cryptographically signed PDF reports with SHA-256 verification. Complete chain of custody. GDPR, HIPAA, PCI-DSS compliant documentation.</p>
+            <h4><Monitor className="feature-icon" /> Desktop Applications</h4>
+            <p>Electron, Python GUI, system-level tools — powerful desktop software from productivity apps to security engines.</p>
           </div>
           <div className="feature-card-new">
-            <h4><Zap className="feature-icon" /> Multi-Platform</h4>
-            <p>Desktop (Windows), Mobile (Android), Bootable USB, and standalone Hardware Device. Same powerful features across all platforms.</p>
+            <h4><Layers className="feature-icon" /> DevOps & Cloud</h4>
+            <p>Docker, GitHub Actions, Vercel, AWS, CI/CD pipelines — modern deployment workflows that keep projects running smooth.</p>
           </div>
         </div>
       </section>
 
+      {/* Featured Projects Section */}
       <section className="section-wrapper" id="releases">
-        <span className="section-label">04. PRODUCT RELEASES</span>
-        <h2 className="section-heading">From desktop to dedicated hardware.</h2>
+        <span className="section-label">04. FEATURED PROJECTS</span>
+        <h2 className="section-heading">Built by ARKAA — shipping real products.</h2>
         <div className="problem-grid">
           <div className="problem-card">
-            <h3><Monitor className="release-icon" /> Desktop Application</h3>
-            <p><strong>Status:</strong> Production Ready<br /><strong>Platform:</strong> Windows 10/11<br /><strong>Tech:</strong> Electron + Python + Embedded AI<br /><br />Full-featured desktop app with GUI for drive scanning, AI content analysis, and secure wiping. Perfect for individual users and small teams.</p>
+            <h3><Cpu className="release-icon" /> Arka — Secure Erase Engine</h3>
+            <p><strong>Status:</strong> Production Ready<br /><strong>Stack:</strong> Electron + Python + AI<br /><strong>Platform:</strong> Windows, Android<br /><br />AI-powered data destruction tool with NIST 800-88 compliance. Reads actual file content to detect sensitive data, then permanently destroys it with military-grade algorithms. 100% offline.</p>
           </div>
           <div className="problem-card">
-            <h3><Smartphone className="release-icon" /> Mobile Application</h3>
-            <p><strong>Status:</strong> In Development<br /><strong>Platform:</strong> Android<br /><strong>Tech:</strong> React Native + Embedded AI<br /><br />Portable Arka for on-the-go analysis. Scan external drives, USB devices, and SD cards directly from your phone. Same AI-powered detection, mobile-optimized.</p>
+            <h3><Globe className="release-icon" /> ARKAA Portfolio</h3>
+            <p><strong>Status:</strong> Live<br /><strong>Stack:</strong> React + Vite + GSAP<br /><strong>Platform:</strong> Web<br /><br />The website you're looking at right now! A modern, animated team portfolio showcasing our work, skills, and team members with smooth transitions and responsive design.</p>
           </div>
           <div className="problem-card">
-            <h3><Usb className="release-icon" /> Bootable USB</h3>
-            <p><strong>Status:</strong> Planned<br /><strong>Platform:</strong> Windows To Go / PE<br /><strong>Tech:</strong> Portable Windows + Electron<br /><br />Complete Arka environment on bootable USB. Take control of any PC during boot. Perfect for IT professionals servicing multiple machines.</p>
+            <h3><Smartphone className="release-icon" /> Upcoming Mobile App</h3>
+            <p><strong>Status:</strong> In Development<br /><strong>Stack:</strong> React Native<br /><strong>Platform:</strong> Android & iOS<br /><br />A cross-platform mobile application currently under development. Stay tuned for more details as we bring our next big idea to life.</p>
           </div>
           <div className="problem-card solution-card">
-            <h3><Cpu className="release-icon" /> Hardware Device</h3>
-            <p><strong>Status:</strong> Research Phase<br /><strong>Platform:</strong> Standalone Mini-CPU<br /><strong>Tech:</strong> ARM/x86 + NPU + Embedded OS<br /><br />Independent device with own processor, RAM, and AI accelerator. Zero host dependency. Enterprise-grade solution for data centers and forensic labs.</p>
+            <h3><Rocket className="release-icon" /> More Coming Soon</h3>
+            <p><strong>Status:</strong> Ideation<br /><strong>Stack:</strong> TBD<br /><strong>Platform:</strong> Multi-platform<br /><br />We're always working on something new. From AI-powered tools to creative web experiences — our pipeline is packed with ambitious projects waiting to ship.</p>
           </div>
         </div>
       </section>

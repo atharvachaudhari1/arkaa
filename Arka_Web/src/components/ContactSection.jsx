@@ -6,16 +6,16 @@ const ContactSection = () => {
       <div className="contact-container">
         <div className="contact-left">
           <div className="company-logo">
-            {/* <img src={ArkaIcon} alt="Arka" /> */}
-            <h2>Meet the Developers</h2>
+            <h2>Meet Team ARKAA</h2>
           </div>
 
-          <div className="company-details">
+          <div className="company-details" id="team">
             <div className="detail-item">
               <div className="parent">
                 {/* Utsav Singh */}
                 <div className="div1">
                   <span className="dev-name">Utsav Singh</span>
+                  <span className="dev-role">Full-Stack Developer</span>
                   <div className="dev-social-links">
                     <a href="https://github.com/Utsav-Singh-35" target="_blank" rel="noopener noreferrer">
                       <img src="/github.png" alt="GitHub" className="social-icon" />
@@ -32,6 +32,7 @@ const ContactSection = () => {
                 {/* Om Singh */}
                 <div className="div2">
                   <span className="dev-name">Om Singh</span>
+                  <span className="dev-role">Backend Developer</span>
                   <div className="dev-social-links">
                     <a href="https://github.com/Jayom5797" target="_blank" rel="noopener noreferrer">
                       <img src="/github.png" alt="GitHub" className="social-icon" />
@@ -48,6 +49,7 @@ const ContactSection = () => {
                 {/* Reetika Yadav */}
                 <div className="div2">
                   <span className="dev-name">Reetika Yadav</span>
+                  <span className="dev-role">Frontend Developer</span>
                   <div className="dev-social-links">
                     <a href="https://github.com/reetika0104" target="_blank" rel="noopener noreferrer">
                       <img src="/github.png" alt="GitHub" className="social-icon" />
@@ -64,6 +66,7 @@ const ContactSection = () => {
                 {/* Vikas Tiwari */}
                 <div className="div3">
                   <span className="dev-name">Vikas Tiwari</span>
+                  <span className="dev-role">AI/ML Engineer</span>
                   <div className="dev-social-links">
                     <a href="https://github.com/Cyberexe1" target="_blank" rel="noopener noreferrer">
                       <img src="/github.png" alt="GitHub" className="social-icon" />
@@ -82,7 +85,7 @@ const ContactSection = () => {
         </div>
 
         <div className="contact-right">
-          <h2 className="form-title">Contact us</h2>
+          <h2 className="form-title">Get in Touch</h2>
 
           <form action="https://api.web3forms.com/submit" method="POST" className="contact-form">
             <input type="hidden" name="access_key" value="a0bdaca0-3c89-44f9-9998-67a034612002" />

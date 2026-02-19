@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ArkaIcon from '../assets/icons/Arka.svg';
 
-const Navbar = ({ onGetArkaClick }) => {
+const Navbar = ({ onContactClick }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -13,10 +13,10 @@ const Navbar = ({ onGetArkaClick }) => {
     setIsMobileMenuOpen(false);
   };
 
-  const handleGetArkaClick = () => {
+  const handleContactClick = () => {
     closeMobileMenu();
-    if (onGetArkaClick) {
-      onGetArkaClick();
+    if (onContactClick) {
+      onContactClick();
     }
   };
 
@@ -24,9 +24,9 @@ const Navbar = ({ onGetArkaClick }) => {
     <nav className="navbar">
       <div className="nav-container">
         <Link to="/" className="nav-logo" style={{ textDecoration: 'none' }} onClick={closeMobileMenu}>
-          <img src={ArkaIcon} alt="Arka" width="40" height="40" />
-          <span>Arka</span>
-          <span className="nav-tagline">| Security Engine</span>
+          <img src={ArkaIcon} alt="ARKAA" width="40" height="40" />
+          <span>ARKAA</span>
+          <span className="nav-tagline">| Team Portfolio</span>
         </Link>
 
         <button className={`mobile-menu-toggle ${isMobileMenuOpen ? 'active' : ''}`} onClick={toggleMobileMenu}>
@@ -36,16 +36,16 @@ const Navbar = ({ onGetArkaClick }) => {
         </button>
 
         <ul className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
-          <li><Link to="/#home" onClick={closeMobileMenu}>Why Arka</Link></li>
+          <li><Link to="/#home" onClick={closeMobileMenu}>Home</Link></li>
           <li><Link to="/#about" onClick={closeMobileMenu}>About</Link></li>
-          <li><Link to="/#features" onClick={closeMobileMenu}>Features</Link></li>
-          <li><Link to="/#contact" onClick={closeMobileMenu}>Contacts</Link></li>
-          <li><Link to="/how-it-works" onClick={closeMobileMenu}>How it Works</Link></li>
-          <li><Link to="/docs" onClick={closeMobileMenu}>Docs</Link></li>
-          <li className="mobile-only"><button className="nav-cta" onClick={handleGetArkaClick}>Get Arka</button></li>
+          <li><Link to="/#projects" onClick={closeMobileMenu}>Projects</Link></li>
+          <li><Link to="/#team" onClick={closeMobileMenu}>Team</Link></li>
+          <li><Link to="/skills" onClick={closeMobileMenu}>Skills</Link></li>
+          <li><Link to="/#contact" onClick={closeMobileMenu}>Contact</Link></li>
+          <li className="mobile-only"><button className="nav-cta" onClick={handleContactClick}>Hire Us</button></li>
         </ul>
 
-        <button className="nav-cta desktop-only" onClick={handleGetArkaClick}>Get Arka</button>
+        <button className="nav-cta desktop-only" onClick={handleContactClick}>Hire Us</button>
       </div>
     </nav>
   );

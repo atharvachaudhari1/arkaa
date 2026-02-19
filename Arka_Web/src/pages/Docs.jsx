@@ -1,62 +1,59 @@
-import Navbar from '../components/Navbar.jsx';
-import Footer from '../components/Footer.jsx';
-
 const Docs = () => {
     return (
         <div className="page-wrapper">
             <div className="page-header">
-                <span className="section-label">06. DOCUMENTATION</span>
-                <h1 className="section-heading">Technical Documentation</h1>
+                <span className="section-label">06. SKILLS & SERVICES</span>
+                <h1 className="section-heading">What We Bring to the Table</h1>
                 <p className="about-text-new">
-                    Everything you need to deploy Arka in your environment. From quick start guides to technical specifications,
-                    our documentation covers desktop, mobile, bootable, and hardware implementations.
+                    Our team combines deep technical expertise across multiple domains. Whether you need a web app, mobile solution,
+                    AI integration, or a full product built from scratch — ARKAA has you covered.
                 </p>
             </div>
 
             <section className="section-wrapper" style={{ paddingTop: '5rem' }}>
                 <div className="problem-grid">
                     <div className="problem-card">
-                        <h3>📖 Quick Start Guide</h3>
-                        <p>Get Arka running in under 10 minutes. System requirements, installation steps, and first scan walkthrough. Available for Windows desktop and Android mobile.</p>
+                        <h3>🌐 Web Development</h3>
+                        <p>Full-stack web applications with React, Next.js, Node.js, and modern CSS. Responsive, accessible, and optimized for performance. From landing pages to complex SaaS platforms.</p>
                     </div>
                     <div className="problem-card">
-                        <h3>🤖 AI Features</h3>
-                        <p>Understanding Arka's embedded AI content analysis. How it reads files, assigns confidence scores, and operates 100% offline. Supported file formats and OCR capabilities.</p>
+                        <h3>🤖 AI & Machine Learning</h3>
+                        <p>Custom AI solutions including NLP, computer vision, recommendation engines, and embedded AI models. We work with TensorFlow, PyTorch, OpenAI APIs, and LangChain.</p>
                     </div>
                     <div className="problem-card">
-                        <h3>🔐 NIST 800-88 Standards</h3>
-                        <p>Technical deep-dive into our sanitization algorithms. Clear, Purge, and Destroy methods. Multi-pass patterns, verification processes, and compliance documentation.</p>
+                        <h3>📱 Mobile Development</h3>
+                        <p>Cross-platform mobile apps with React Native and native Android development. From UI/UX design to App Store deployment. Beautiful, performant apps for every device.</p>
                     </div>
                     <div className="problem-card solution-card">
-                        <h3>🔬 Hardware Specifications</h3>
-                        <p>Technical specs for Arka Hardware Device. Processor requirements, NPU acceleration, storage controller interfaces, and bootable USB creation guide.</p>
+                        <h3>🖥️ Desktop Applications</h3>
+                        <p>Electron-based desktop apps, Python GUI tools, and system-level software. We build powerful tools that run natively on Windows, macOS, and Linux.</p>
                     </div>
                     <div className="problem-card">
-                        <h3>📊 Health Dashboard</h3>
-                        <p>Using SMART monitoring, deleted file recovery, and AI storage optimization. Natural language configuration and version control intelligence features.</p>
+                        <h3>🎨 UI/UX Design</h3>
+                        <p>User-centered design with Figma, Adobe XD, and modern design systems. We create intuitive interfaces, smooth animations, and memorable visual experiences.</p>
                     </div>
                     <div className="problem-card">
-                        <h3>📄 Compliance & Auditing</h3>
-                        <p>Certificate generation, SHA-256 verification, and audit trail documentation. GDPR, HIPAA, and PCI-DSS compliance guidelines for enterprise deployment.</p>
+                        <h3>☁️ DevOps & Cloud</h3>
+                        <p>Cloud infrastructure on AWS, Docker containerization, CI/CD pipelines with GitHub Actions, and automated deployment. We keep your apps running reliably at scale.</p>
                     </div>
                 </div>
             </section>
 
             <section className="section-wrapper">
-                <span className="section-label">RESOURCES</span>
-                <h2 className="section-heading">Additional Resources</h2>
+                <span className="section-label">TECH STACK</span>
+                <h2 className="section-heading">Tools & Technologies</h2>
                 <div className="features-grid-new">
                     <div className="feature-card-new">
-                        <h4>GitHub Repository</h4>
-                        <p>Access source code, report issues, and view development roadmap. Private repo for internal development and fundraising.</p>
+                        <h4>Languages</h4>
+                        <p>JavaScript, TypeScript, Python, Java, Kotlin, C++, HTML/CSS — we're polyglot developers comfortable across the stack.</p>
                     </div>
                     <div className="feature-card-new">
-                        <h4>NIST 800-88 Guidelines</h4>
-                        <p>Official NIST Special Publication 800-88 Revision 1: Guidelines for Media Sanitization. Our compliance reference.</p>
+                        <h4>Frameworks & Libraries</h4>
+                        <p>React, Next.js, Vite, Express, Flask, React Native, Electron, TailwindCSS, Three.js, GSAP — modern tools for modern products.</p>
                     </div>
                     <div className="feature-card-new">
-                        <h4>Team Contact</h4>
-                        <p>Connect with our development team for technical inquiries, partnership opportunities, or fundraising discussions.</p>
+                        <h4>Infrastructure</h4>
+                        <p>MongoDB, PostgreSQL, Redis, Docker, AWS, Vercel, GitHub Actions, Nginx — reliable infrastructure that scales.</p>
                     </div>
                 </div>
             </section>

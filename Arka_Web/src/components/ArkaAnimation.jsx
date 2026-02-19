@@ -18,7 +18,7 @@ const ArkaAnimation = ({ onAnimationComplete }) => {
 
   useEffect(() => {
     // Arka Starting Animation Script
-    var text = 'SECURE ERASE & VERIFICATION ENGINE';
+    var text = 'INNOVATE · CREATE · DELIVER';
     var typingDiv = document.getElementById('typingText');
     var i = 0;
 
@@ -198,7 +198,7 @@ const ArkaAnimation = ({ onAnimationComplete }) => {
     <div className="center-container" id="mainContainer">
       <div className="fade-text-container">
         <div className="fade-text">
-          Arka
+          ARKAA
           <div className="black-div" id="typingText"></div>
         </div>
       </div>
