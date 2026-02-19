@@ -1,0 +1,8 @@
+{
+  "buildCommand": "cd Arka_Web && npm install && npm run build",
+  "outputDirectory": "Arka_Web/dist",
+  "framework": null,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ]
+}
