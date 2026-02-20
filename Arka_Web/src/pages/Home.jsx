@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import ContactSection from '../components/ContactSection.jsx';
-import { Code, Palette, Globe, Cpu, Rocket, Users, Layers, Smartphone, Monitor, Lightbulb } from 'lucide-react';
+import { Code, Palette, Globe, Cpu, Rocket, Smartphone, Users } from 'lucide-react';
 
 
 const Home = ({ onContactClick }) => {
@@ -95,41 +95,9 @@ const Home = ({ onContactClick }) => {
         </div>
       </section>
 
-      {/* Skills & Expertise Section */}
-      <section className="section-wrapper" id="projects">
-        <span className="section-label">03. OUR EXPERTISE</span>
-        <h2 className="section-heading">Technologies we master, tools we love.</h2>
-        <div className="features-grid-new">
-          <div className="feature-card-new">
-            <h4><Code className="feature-icon" /> Frontend Development</h4>
-            <p>React, Next.js, Vite, Tailwind CSS, GSAP animations, Three.js — we build beautiful, responsive interfaces with modern frameworks and libraries.</p>
-          </div>
-          <div className="feature-card-new">
-            <h4><Cpu className="feature-icon" /> Backend & APIs</h4>
-            <p>Node.js, Express, Python, Flask, REST APIs, GraphQL, MongoDB, PostgreSQL — robust server-side architecture that scales with your needs.</p>
-          </div>
-          <div className="feature-card-new">
-            <h4><Lightbulb className="feature-icon" /> AI & ML</h4>
-            <p>TensorFlow, PyTorch, OpenAI, LangChain, Computer Vision, NLP — intelligent features powered by cutting-edge machine learning technologies.</p>
-          </div>
-          <div className="feature-card-new">
-            <h4><Smartphone className="feature-icon" /> Mobile Development</h4>
-            <p>React Native, Android (Kotlin/Java), responsive PWAs — cross-platform mobile experiences that feel native on every device.</p>
-          </div>
-          <div className="feature-card-new">
-            <h4><Monitor className="feature-icon" /> Desktop Applications</h4>
-            <p>Electron, Python GUI, system-level tools — powerful desktop software from productivity apps to security engines.</p>
-          </div>
-          <div className="feature-card-new">
-            <h4><Layers className="feature-icon" /> DevOps & Cloud</h4>
-            <p>Docker, GitHub Actions, Vercel, AWS, CI/CD pipelines — modern deployment workflows that keep projects running smooth.</p>
-          </div>
-        </div>
-      </section>
-
       {/* Featured Projects Section */}
       <section className="section-wrapper" id="releases">
-        <span className="section-label">04. FEATURED PROJECTS</span>
+        <span className="section-label">03. FEATURED PROJECTS</span>
         <h2 className="section-heading">Built by ARKAA — shipping real products.</h2>
         <div className="problem-grid">
           <div className="problem-card">
@@ -140,6 +108,12 @@ const Home = ({ onContactClick }) => {
             <h3><Globe className="release-icon" /> ARKAA Portfolio</h3>
             <p><strong>Status:</strong> Live<br /><strong>Stack:</strong> React + Vite + GSAP<br /><strong>Platform:</strong> Web<br /><br />The website you're looking at right now! A modern, animated team portfolio showcasing our work, skills, and team members with smooth transitions and responsive design.</p>
           </div>
+          <a href="https://wt2-seven.vercel.app" target="_blank" rel="noopener noreferrer" className="problem-card-link">
+            <div className="problem-card">
+              <h3><Users className="release-icon" /> ECS Mentoring System</h3>
+              <p><strong>Status:</strong> Live<br /><strong>Stack:</strong> Web<br /><strong>Platform:</strong> Web<br /><br />A mentoring platform connecting mentors and mentees. Visit the live project to explore.</p>
+            </div>
+          </a>
           <div className="problem-card">
             <h3><Smartphone className="release-icon" /> Upcoming Mobile App</h3>
             <p><strong>Status:</strong> In Development<br /><strong>Stack:</strong> React Native<br /><strong>Platform:</strong> Android & iOS<br /><br />A cross-platform mobile application currently under development. Stay tuned for more details as we bring our next big idea to life.</p>
