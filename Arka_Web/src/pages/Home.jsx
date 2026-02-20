@@ -1,9 +1,48 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import ContactSection from '../components/ContactSection.jsx';
 import { Code, Palette, Globe, Cpu, Rocket, Smartphone, Users } from 'lucide-react';
 
+const AWARDS_IMAGES = [
+  {
+    src: '/awards-sih-2025.png',
+    title: 'SIH Hardware Edition 2025',
+    subtitle: 'Winner — ₹1,50,000',
+  },
+  {
+    src: '/awards-social-media.png',
+    title: 'Best Social Media Presence',
+    subtitle: 'Team Arka',
+  },
+];
+
+const AWARDS_INTERVAL = 4000;
 
 const Home = ({ onContactClick }) => {
+  const awardsRef = useRef(null);
+  const [awardsVisible, setAwardsVisible] = useState(false);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        const visible = entry.isIntersecting;
+        if (visible) setAwardsVisible(true);
+        setIsInView(visible);
+      },
+      { threshold: 0.15 }
+    );
+    if (awardsRef.current) obs.observe(awardsRef.current);
+    return () => obs.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isInView) return;
+    const timer = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % AWARDS_IMAGES.length);
+    }, AWARDS_INTERVAL);
+    return () => clearInterval(timer);
+  }, [isInView]);
 
   return (
     <>
@@ -72,9 +111,43 @@ const Home = ({ onContactClick }) => {
       </section>
 
       {/* What We Do Section */}
-      <section className="section-wrapper">
+      <section className="section-wrapper" ref={awardsRef}>
         <span className="section-label">02. WHAT WE DO</span>
         <h2 className="section-heading">From idea to impact — we cover it all.</h2>
+        <div className="awards-carousel-wrapper">
+          <div
+            className="awards-grid-horizontal"
+            style={{ transform: `translateX(-${activeSlide * 100}%)` }}
+          >
+            {AWARDS_IMAGES.map((item, i) => (
+              <div
+                key={item.src}
+                className={`awards-card-3d ${awardsVisible ? 'visible' : ''}`}
+                style={{ transitionDelay: `${i * 0.35}s` }}
+              >
+                <div className="awards-card-inner">
+                  <div className="awards-card-front">
+                    <img src={item.src} alt={item.title} />
+                    <div className="awards-card-overlay">
+                      <h4>{item.title}</h4>
+                      <p>{item.subtitle}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="awards-dots">
+            {AWARDS_IMAGES.map((_, i) => (
+              <button
+                key={i}
+                className={`awards-dot ${i === activeSlide ? 'active' : ''}`}
+                onClick={() => setActiveSlide(i)}
+                aria-label={`Go to slide ${i + 1}`}
+              />
+            ))}
+          </div>
+        </div>
         <div className="problem-grid">
           <div className="problem-card">
             <h3>Web Development</h3>

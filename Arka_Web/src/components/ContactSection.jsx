@@ -1,5 +1,3 @@
-import ArkaIcon from '../assets/icons/Arka.svg';
-
 const ContactSection = () => {
   return (
     <section className="contact-section" id="contact">
