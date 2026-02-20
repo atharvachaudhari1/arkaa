@@ -26,23 +26,65 @@ const GetArkaForm = ({ isOpen, onClose }) => {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
+    const scriptUrl = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
+
+    if (scriptUrl) {
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = scriptUrl;
+      form.target = 'arkaa_sheet_iframe';
+      form.style.display = 'none';
+      const fields = [
+        { name: 'formType', value: 'Work with Us' },
+        { name: 'userName', value: formData.userName },
+        { name: 'userEmail', value: formData.userEmail },
+        { name: 'projectType', value: formData.projectType },
+        { name: 'organisation', value: formData.organisation },
+        { name: 'message', value: formData.message }
+      ];
+      fields.forEach(({ name, value }) => {
+        const input = document.createElement('input');
+        input.name = name;
+        input.value = value ?? '';
+        form.appendChild(input);
+      });
+      document.body.appendChild(form);
+
+      const onMessage = (event) => {
+        if (event.data && event.data.arkaaForm !== undefined) {
+          window.removeEventListener('message', onMessage);
+          setIsSubmitting(false);
+          if (event.data.success) {
+            setSubmitStatus('success');
+            setFormData({ userName: '', userEmail: '', projectType: '', message: '', organisation: '' });
+            setTimeout(() => { onClose(); setSubmitStatus(null); }, 2000);
+          } else {
+            setSubmitStatus('error');
+          }
+        }
+      };
+      window.addEventListener('message', onMessage);
+      form.submit();
+      setTimeout(() => {
+        if (document.body.contains(form)) {
+          document.body.removeChild(form);
+          window.removeEventListener('message', onMessage);
+          setIsSubmitting(false);
+          setSubmitStatus('success');
+          setFormData({ userName: '', userEmail: '', projectType: '', message: '', organisation: '' });
+          setTimeout(() => { onClose(); setSubmitStatus(null); }, 2000);
+        }
+      }, 5000);
+      return;
+    }
+
     try {
       const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
-
       if (!accessKey) {
-        // Fallback: just show success
         setSubmitStatus('success');
-        setFormData({
-          userName: '',
-          userEmail: '',
-          projectType: '',
-          message: '',
-          organisation: ''
-        });
-        setTimeout(() => {
-          onClose();
-          setSubmitStatus(null);
-        }, 2000);
+        setFormData({ userName: '', userEmail: '', projectType: '', message: '', organisation: '' });
+        setTimeout(() => { onClose(); setSubmitStatus(null); }, 2000);
+        setIsSubmitting(false);
         return;
       }
 
@@ -51,46 +93,15 @@ const GetArkaForm = ({ isOpen, onClose }) => {
       web3FormsData.append('subject', `🚀 New Project Inquiry from ${formData.userName}`);
       web3FormsData.append('from_name', formData.userName);
       web3FormsData.append('email', formData.userEmail);
+      web3FormsData.append('message', `Name: ${formData.userName}\nEmail: ${formData.userEmail}\nProject: ${formData.projectType}\nOrg: ${formData.organisation}\n\n${formData.message}`);
 
-      const emailMessage = `
-🚀 New Project Inquiry — ARKAA Team Portfolio
-
-👤 Name: ${formData.userName}
-📧 Email: ${formData.userEmail}
-💼 Project Type: ${formData.projectType || 'Not specified'}
-🏢 Organization: ${formData.organisation || 'Not specified'}
-
-💬 Message:
-${formData.message}
-
-📅 Submitted: ${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}
-
----
-This inquiry was submitted through the ARKAA Team Portfolio website.
-      `.trim();
-
-      web3FormsData.append('message', emailMessage);
-
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: web3FormsData
-      });
-
+      const response = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: web3FormsData });
       const result = await response.json();
 
       if (result.success) {
         setSubmitStatus('success');
-        setFormData({
-          userName: '',
-          userEmail: '',
-          projectType: '',
-          message: '',
-          organisation: ''
-        });
-        setTimeout(() => {
-          onClose();
-          setSubmitStatus(null);
-        }, 2000);
+        setFormData({ userName: '', userEmail: '', projectType: '', message: '', organisation: '' });
+        setTimeout(() => { onClose(); setSubmitStatus(null); }, 2000);
       } else {
         throw new Error('Failed to submit');
       }

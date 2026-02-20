@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import ContactSection from '../components/ContactSection.jsx';
-import { Code, Palette, Globe, Cpu, Rocket, Smartphone, Users } from 'lucide-react';
+import { Cpu, Globe, Rocket, Smartphone, Users } from 'lucide-react';
 
 const AWARDS_IMAGES = [
   {
@@ -58,44 +58,18 @@ const Home = ({ onContactClick }) => {
 
         <div className="hero-content">
           <div className="hero-left">
-            <h1 className="hero-title">WE BUILD DIGITAL<br />EXPERIENCES THAT MATTER</h1>
+            <h1 className="hero-title">WE ARE TEAM ARKAA.</h1>
             <p className="hero-subtitle">
-              Team ARKAA — a passionate crew of developers, designers,<br />
-              and innovators turning bold ideas into powerful digital<br />
-              products. From concept to deployment, we deliver.
+              ARKAA brings together creative minds and technical experts to design, develop, and deploy digital solutions that matter.
             </p>
           </div>
 
           <div className="hero-right">
             <p className="hero-description">
-              <span className="highlight">ARKAA</span> is a team of driven technologists who combine cutting-edge development skills with creative design thinking to build products that make an impact.
+              From ideation to execution — we build with clarity, innovation, and impact.
             </p>
             <button className="hero-cta" onClick={onContactClick}>Work with Us</button>
           </div>
-        </div>
-
-        {/* Bottom Section */}
-        <div className="hero-bottom">
-          <div className="hero-platforms">
-            <span>We work with:</span>
-            <div className="platform-icons">
-              <div className="platform-icon">
-                <Code size={24} style={{ color: '#fff' }} />
-              </div>
-              <div className="platform-icon">
-                <Palette size={24} style={{ color: '#fff' }} />
-              </div>
-              <div className="platform-icon">
-                <Globe size={24} style={{ color: '#fff' }} />
-              </div>
-            </div>
-          </div>
-
-          <div className="hero-tagline">
-            <p>Innovate. Create. Deliver.</p>
-          </div>
-
-          <div className="version-info">Est. 2024</div>
         </div>
       </section>
 
@@ -110,14 +84,18 @@ const Home = ({ onContactClick }) => {
         </p>
       </section>
 
-      {/* What We Do Section */}
+      {/* Tagline Section - Separate from What We Do */}
+      <section className="section-wrapper section-tagline">
+        <h2 className="section-heading-tagline">From idea to impact — we cover it all.</h2>
+      </section>
+
+      {/* ARKAA Achievements Section */}
       <section className="section-wrapper" ref={awardsRef}>
-        <span className="section-label">02. WHAT WE DO</span>
-        <h2 className="section-heading">From idea to impact — we cover it all.</h2>
+        <span className="section-label">02. ARKAA ACHIEVEMENTS</span>
         <div className="awards-carousel-wrapper">
           <div
             className="awards-grid-horizontal"
-            style={{ transform: `translateX(-${activeSlide * 100}%)` }}
+            style={{ transform: `translateX(-${activeSlide * (100 / AWARDS_IMAGES.length)}%)` }}
           >
             {AWARDS_IMAGES.map((item, i) => (
               <div
@@ -127,7 +105,7 @@ const Home = ({ onContactClick }) => {
               >
                 <div className="awards-card-inner">
                   <div className="awards-card-front">
-                    <img src={item.src} alt={item.title} />
+                    <img src={item.src} alt={item.title} loading="eager" decoding="async" />
                     <div className="awards-card-overlay">
                       <h4>{item.title}</h4>
                       <p>{item.subtitle}</p>
@@ -146,24 +124,6 @@ const Home = ({ onContactClick }) => {
                 aria-label={`Go to slide ${i + 1}`}
               />
             ))}
-          </div>
-        </div>
-        <div className="problem-grid">
-          <div className="problem-card">
-            <h3>Web Development</h3>
-            <p>Modern, responsive web applications built with React, Next.js, and cutting-edge frontend technologies. We craft pixel-perfect interfaces backed by robust, scalable backends using Node.js, Python, and cloud infrastructure.</p>
-          </div>
-          <div className="problem-card solution-card">
-            <h3>AI & Machine Learning</h3>
-            <p>Intelligent solutions powered by machine learning, natural language processing, and computer vision. From embedded AI models to cloud-based inference, we bring smart automation to real-world problems.</p>
-          </div>
-          <div className="problem-card">
-            <h3>Mobile Applications</h3>
-            <p>Cross-platform mobile experiences built with React Native and native Android development. We design apps that feel natural, perform fast, and delight users on every device.</p>
-          </div>
-          <div className="problem-card solution-card">
-            <h3>Desktop & System Tools</h3>
-            <p>Powerful desktop applications using Electron, Python, and system-level programming. From security tools to productivity apps, we build software that works at every level of the stack.</p>
           </div>
         </div>
       </section>

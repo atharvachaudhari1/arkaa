@@ -22,14 +22,6 @@ const Footer = () => {
         </div>
 
         <div className="footer-column">
-          <h3>Contact</h3>
-          <ul className="footer-links">
-            <li><a href="mailto:Arka.engine@gmail.com">Arka.engine@gmail.com <span>→</span></a></li>
-            <li><a href="https://github.com/atharvachaudhari1" target="_blank" rel="noopener noreferrer">GitHub <span>→</span></a></li>
-          </ul>
-        </div>
-
-        <div className="footer-column">
           <h3>Stay in touch</h3>
           <form className="newsletter-form">
             <input type="email" placeholder="Enter your email" required />

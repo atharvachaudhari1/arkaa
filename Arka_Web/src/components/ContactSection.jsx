@@ -1,4 +1,59 @@
+import { useState } from 'react';
+
 const ContactSection = () => {
+  const [getInTouch, setGetInTouch] = useState({ name: '', email: '', message: '' });
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [error, setError] = useState(false);
+
+  const scriptUrl = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
+
+  const handleGetInTouchSubmit = (e) => {
+    e.preventDefault();
+    if (scriptUrl) {
+      setSending(true);
+      setError(false);
+      setSent(false);
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = scriptUrl;
+      form.target = 'arkaa_sheet_iframe';
+      form.style.display = 'none';
+      ['formType', 'name', 'email', 'message'].forEach((key) => {
+        const input = document.createElement('input');
+        input.name = key;
+        input.value = key === 'formType' ? 'Get in Touch' : (getInTouch[key] ?? '');
+        form.appendChild(input);
+      });
+      document.body.appendChild(form);
+      const onMessage = (event) => {
+        if (event.data && event.data.arkaaForm !== undefined) {
+          window.removeEventListener('message', onMessage);
+          setSending(false);
+          if (event.data.success) {
+            setSent(true);
+            setGetInTouch({ name: '', email: '', message: '' });
+          } else {
+            setError(true);
+          }
+        }
+      };
+      window.addEventListener('message', onMessage);
+      form.submit();
+      setTimeout(() => {
+        if (document.body.contains(form)) {
+          document.body.removeChild(form);
+          window.removeEventListener('message', onMessage);
+          setSending(false);
+          setSent(true);
+          setGetInTouch({ name: '', email: '', message: '' });
+        }
+      }, 5000);
+      return;
+    }
+    // else form submits normally to Web3Forms via action
+  };
+
   return (
     <section className="contact-section" id="contact">
       <div className="contact-container">
@@ -71,27 +126,43 @@ const ContactSection = () => {
         <div className="contact-right">
           <h2 className="form-title">Get in Touch</h2>
 
-          <form action="https://api.web3forms.com/submit" method="POST" className="contact-form">
-            <input type="hidden" name="access_key" value="a0bdaca0-3c89-44f9-9998-67a034612002" />
-            <input type="hidden" name="redirect" value="https://web3forms.com/success" />
-
-            <div className="form-field">
-              <label htmlFor="name">Name</label>
-              <input type="text" id="name" name="name" required />
-            </div>
-
-            <div className="form-field">
-              <label htmlFor="email">Email</label>
-              <input type="email" id="email" name="email" required />
-            </div>
-
-            <div className="form-field">
-              <label htmlFor="message">Message</label>
-              <textarea id="message" name="message" rows="4" required></textarea>
-            </div>
-
-            <button type="submit" className="form-submit-btn">Send message</button>
-          </form>
+          {scriptUrl ? (
+            <form onSubmit={handleGetInTouchSubmit} className="contact-form">
+              <div className="form-field">
+                <label htmlFor="name">Name</label>
+                <input type="text" id="name" name="name" value={getInTouch.name} onChange={(e) => setGetInTouch((p) => ({ ...p, name: e.target.value }))} required />
+              </div>
+              <div className="form-field">
+                <label htmlFor="email">Email</label>
+                <input type="email" id="email" name="email" value={getInTouch.email} onChange={(e) => setGetInTouch((p) => ({ ...p, email: e.target.value }))} required />
+              </div>
+              <div className="form-field">
+                <label htmlFor="message">Message</label>
+                <textarea id="message" name="message" rows="4" value={getInTouch.message} onChange={(e) => setGetInTouch((p) => ({ ...p, message: e.target.value }))} required></textarea>
+              </div>
+              {sent && <p className="form-status success" style={{ marginBottom: '0.5rem' }}>✓ Message sent!</p>}
+              {error && <p className="form-status error" style={{ marginBottom: '0.5rem' }}>✗ Something went wrong. Try again.</p>}
+              <button type="submit" className="form-submit-btn" disabled={sending}>{sending ? 'Sending...' : 'Send message'}</button>
+            </form>
+          ) : (
+            <form action="https://api.web3forms.com/submit" method="POST" className="contact-form">
+              <input type="hidden" name="access_key" value="a0bdaca0-3c89-44f9-9998-67a034612002" />
+              <input type="hidden" name="redirect" value="https://web3forms.com/success" />
+              <div className="form-field">
+                <label htmlFor="name">Name</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div className="form-field">
+                <label htmlFor="email">Email</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div className="form-field">
+                <label htmlFor="message">Message</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+              </div>
+              <button type="submit" className="form-submit-btn">Send message</button>
+            </form>
+          )}
         </div>
       </div>
     </section>

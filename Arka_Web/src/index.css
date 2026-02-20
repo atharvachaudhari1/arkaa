@@ -957,12 +957,24 @@ body {
   font-style: normal;
 }
 
-/* New Sections Styling */
+/* New Sections Styling - Mobile-first */
 .section-wrapper {
-  padding: 10rem 2rem;
+  padding: 3rem 1.25rem;
   background: #000;
   max-width: 1400px;
   margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .section-wrapper {
+    padding: 6rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-wrapper {
+    padding: 10rem 2rem;
+  }
 }
 
 .section-label {
@@ -986,6 +998,27 @@ body {
   letter-spacing: -0.03em;
 }
 
+.section-tagline {
+  padding: 2.5rem 1.25rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .section-tagline {
+    padding: 4rem 2rem;
+  }
+}
+
+.section-heading-tagline {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
 .about-text-new {
   font-size: 1.5rem;
   color: rgba(255, 255, 255, 0.7);
@@ -996,9 +1029,16 @@ body {
 
 .problem-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
   align-items: start;
+}
+
+@media (min-width: 768px) {
+  .problem-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
 }
 
 .problem-card-link {
@@ -1451,14 +1491,9 @@ body {
     height: 40px;
   }
 
-  .problem-grid,
   .features-grid-new {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-  }
-
-  .section-wrapper {
-    padding: 5rem 1.5rem;
   }
 
   .section-heading {
@@ -1489,7 +1524,7 @@ body {
 /* Awards Carousel - Comic-book style on dark theme, auto-slide every 4 seconds */
 .awards-carousel-wrapper {
   position: relative;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   perspective: 1200px;
   overflow: hidden;
   padding: 0.5rem;
@@ -1500,6 +1535,12 @@ body {
   background: rgba(255, 255, 255, 0.03);
 }
 
+@media (min-width: 768px) {
+  .awards-carousel-wrapper {
+    margin-bottom: 4rem;
+  }
+}
+
 .awards-grid-horizontal {
   display: flex;
   flex-direction: row;
@@ -1507,12 +1548,14 @@ body {
   transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 6px;
   overflow: hidden;
+  width: 200%;
 }
 
 .awards-card-3d {
-  flex: 0 0 100%;
-  width: 100%;
-  min-width: 100%;
+  flex: 0 0 50%;
+  width: 50%;
+  min-width: 50%;
+  flex-shrink: 0;
   opacity: 0;
   transform: perspective(1200px) rotateX(-20deg) rotateY(-25deg) translateZ(-100px) scale(0.85);
   transition: all 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
