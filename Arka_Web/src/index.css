@@ -566,7 +566,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 3rem;
+  margin-top: 5rem;
 }
 
 .hero-title {
@@ -887,14 +887,11 @@ body {
 
   .hero-left,
   .hero-right {
-    text-align: left;
-    align-items: flex-start;
+    text-align: center;
+    align-items: center;
     flex: none;
     width: 100%;
-  }
-
-  .hero-right {
-    margin-top: 4rem;
+    margin-top: 1.5rem;
   }
 
   .hero-title {
