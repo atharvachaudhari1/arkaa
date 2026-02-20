@@ -558,6 +558,7 @@ body {
 .hero-left {
   flex: 1;
   line-height: 1.7;
+  margin-top: 2rem;
 }
 
 .hero-right {
@@ -565,6 +566,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-top: 3rem;
 }
 
 .hero-title {
@@ -876,7 +878,11 @@ body {
   .hero-content {
     flex-direction: column;
     gap: 3rem;
-    padding-top: 2rem;
+    padding-top: 3rem;
+  }
+
+  .hero-left {
+    margin-top: 3rem;
   }
 
   .hero-left,
@@ -885,6 +891,10 @@ body {
     align-items: flex-start;
     flex: none;
     width: 100%;
+  }
+
+  .hero-right {
+    margin-top: 4rem;
   }
 
   .hero-title {

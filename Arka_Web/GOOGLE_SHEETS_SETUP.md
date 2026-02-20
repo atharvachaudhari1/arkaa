@@ -20,6 +20,7 @@ Your sheet: [arkaa team landing](https://docs.google.com/spreadsheets/d/1RRdcV1j
 
 ## Step 3: Add URL to the website
 
+**Local (`.env`):**
 1. In the project root (`DeadCode/Arka_Web/`), create or edit `.env`.
 2. Add:
    ```
@@ -27,6 +28,14 @@ Your sheet: [arkaa team landing](https://docs.google.com/spreadsheets/d/1RRdcV1j
    ```
    (use the URL you copied).
 3. Restart the dev server (`npm run dev`).
+
+**Vercel (arkaa.online) – required for forms to work on live site:**
+1. Open [Vercel Dashboard](https://vercel.com/dashboard) → your **arkaa** project.
+2. Go to **Settings** → **Environment Variables**.
+3. Add:
+   - **Name:** `VITE_GOOGLE_SCRIPT_URL`
+   - **Value:** your Web app URL (e.g. `https://script.google.com/macros/s/AKfycbz.../exec`)
+4. **Redeploy** the project (Deployments → ⋮ on latest → Redeploy). Forms will not send to the sheet until this is set and redeployed.
 
 After this, **Work with Us** and **Get in Touch** submissions will append a new row to the first sheet.
 
