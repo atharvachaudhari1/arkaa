@@ -141,7 +141,7 @@ const Home = ({ onContactClick }) => {
             <h3><Globe className="release-icon" /> ARKAA Portfolio</h3>
             <p><strong>Status:</strong> Live<br /><strong>Stack:</strong> React + Vite + GSAP<br /><strong>Platform:</strong> Web<br /><br />The website you're looking at right now! A modern, animated team portfolio showcasing our work, skills, and team members with smooth transitions and responsive design.</p>
           </div>
-          <a href="https://wt2-seven.vercel.app" target="_blank" rel="noopener noreferrer" className="problem-card-link">
+          <a href="https://wt-untoched.vercel.app/" target="_blank" rel="noopener noreferrer" className="problem-card-link">
             <div className="problem-card">
               <h3><Users className="release-icon" /> ECS Mentoring System</h3>
               <p><strong>Status:</strong> Live<br /><strong>Stack:</strong> Web<br /><strong>Platform:</strong> Web<br /><br />A mentoring platform connecting mentors and mentees. Visit the live project to explore.</p>
