@@ -1318,44 +1318,36 @@ body {
   transform: translateY(0);
 }
 
-/* Grid Layout for Contact Left */
-.parent {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
+/* Team list layout for Contact Left */
+.team-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.div1,
-.div2,
-.div3,
-.div4,
-.div5,
-.div6 {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+.team-list-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 3rem 2rem;
-  transition: all 0.3s ease;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
   flex-wrap: wrap;
   gap: 0.5rem;
+  transition: all 0.3s ease;
 }
 
-.div1:hover,
-.div2:hover,
-.div3:hover,
-.div4:hover,
-.div5:hover,
-.div6:hover {
+.team-list-item:hover {
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(255, 68, 68, 0.3);
 }
 
-/* Apply Sesbania font to grid items */
-.parent div .dev-name {
+.team-list-item .dev-name {
   font-family: 'Sesbania', serif;
   font-size: 3.2rem;
   color: white;
@@ -1459,14 +1451,12 @@ body {
     font-size: 2rem;
   }
 
-  .parent {
-    gap: 10px;
-    min-height: 250px;
+  .team-list {
+    gap: 0.75rem;
   }
 
-  .parent div {
-    font-size: 3rem !important;
-    padding: 25px !important;
+  .team-list-item {
+    padding: 1rem 1.25rem;
   }
 
   .features-grid-new {
@@ -1480,20 +1470,11 @@ body {
     min-height: auto;
   }
 
-  .parent {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(6, auto);
-    gap: 1.5rem;
-    min-height: auto;
+  .team-list-item {
+    padding: 1rem 1.25rem;
   }
 
-  .parent div {
-    font-size: 2rem !important;
-    padding: 1.5rem !important;
-    min-height: 150px;
-  }
-
-  .parent div .dev-name {
+  .team-list-item .dev-name {
     font-size: 2.2rem;
   }
 

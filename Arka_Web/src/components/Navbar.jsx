@@ -42,10 +42,10 @@ const Navbar = ({ onContactClick }) => {
           <li><Link to="/#team" onClick={closeMobileMenu}>Team</Link></li>
           <li><Link to="/skills" onClick={closeMobileMenu}>Skills</Link></li>
           <li><Link to="/#contact" onClick={closeMobileMenu}>Contact</Link></li>
-          <li className="mobile-only"><button className="nav-cta" onClick={handleContactClick}>Hire Us</button></li>
+          <li className="mobile-only"><button className="nav-cta" onClick={handleContactClick}>Let's connect</button></li>
         </ul>
 
-        <button className="nav-cta desktop-only" onClick={handleContactClick}>Hire Us</button>
+        <button className="nav-cta desktop-only" onClick={handleContactClick}>Let's connect</button>
       </div>
     </nav>
   );

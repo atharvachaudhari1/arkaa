@@ -119,7 +119,7 @@ const GetArkaForm = ({ isOpen, onClose }) => {
     <div className="form-overlay" onClick={onClose}>
       <div className="form-container" onClick={(e) => e.stopPropagation()}>
         <div className="form-header">
-          <h2>Hire Us</h2>
+          <h2>Let's connect</h2>
           <p>Tell us about your project and we'll get back to you shortly</p>
           <button className="form-close" onClick={onClose}>×</button>
         </div>
