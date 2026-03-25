@@ -50,7 +50,7 @@ const Home = ({ onContactClick }) => {
       <section className="hero" id="home">
         {/* Video Background */}
         <video className="hero-video-bg" autoPlay loop muted playsInline>
-          <source src="/Background.mp4" type="video/mp4" />
+          <source src="/vid2.mp4" type="video/mp4" />
         </video>
 
         {/* Black Opacity Overlay */}
